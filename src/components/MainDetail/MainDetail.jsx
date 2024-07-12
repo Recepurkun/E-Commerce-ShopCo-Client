@@ -1,8 +1,6 @@
-"use client";
 import Image from "next/image";
 import {
   BigImageContainer,
-  DetailsAddToBasketButton,
   DetailsBody,
   DetailsCounter,
   DetailsDiscount,
@@ -19,7 +17,7 @@ import { Ranking } from "@/containers/Products/Styled";
 import BreadCrumb from "../BreadCrumb";
 import { useTranslations } from "next-intl";
 import { DetailsDivider } from "@/styles/GlobalStyled";
-import { useSelector } from "react-redux";
+import CartButton from "./CartButton";
 
 const MainDetail = ({ product }) => {
   const {
@@ -36,7 +34,7 @@ const MainDetail = ({ product }) => {
   } = product;
   const altTexts = ["Front View", "Back View", "All Views"];
   const t = useTranslations("MainDetails");
-  const currentUser = useSelector((state) => state.user.loggedInUser);
+
   return (
     <div className="container">
       <div className="row">
@@ -112,7 +110,7 @@ const MainDetail = ({ product }) => {
               <h6>{t("Size")}</h6>
               <div className="d-flex flex-row mt-3">
                 {size.map((beden) => (
-                  <DetailsSizeButton>
+                  <DetailsSizeButton key={beden}>
                     <p>{beden}</p>
                   </DetailsSizeButton>
                 ))}
@@ -123,9 +121,7 @@ const MainDetail = ({ product }) => {
               <DetailsCounter>
                 <FaMinus /> 1 <FaPlus />
               </DetailsCounter>
-              <DetailsAddToBasketButton className="ms-3_5">
-                {t("AddToCart")}
-              </DetailsAddToBasketButton>
+              <CartButton product={product} />
             </div>
           </div>
         </div>

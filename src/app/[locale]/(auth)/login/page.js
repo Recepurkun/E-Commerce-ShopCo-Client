@@ -8,13 +8,14 @@ import { auth } from "@/firebaseConfig";
 import Spinner from "@/components/Spinner";
 import toast from "react-hot-toast";
 import { HeroButton } from "@/components/Hero/Styled";
+import loginImg from "../../../../../public/login.png"
+import Image from "next/image";
 
 function Login() {
     const [loading, setLoading] = useState(false);
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [errors, setErrors] = useState({});
-    const [loggedUser, setLoggedUser] = useState('')
     const router = useRouter();
     const activeUrl = usePathname();
     const activeLang = activeUrl.split('/')[1];
@@ -43,7 +44,6 @@ function Login() {
         setLoading(true);
         try {
             const userCredential = await signInWithEmailAndPassword(auth, email, password);
-            setLoggedUser(userCredential.user.email)
             toast.success("Successfully registered");
             await delay(500);
             setLoading(false);
@@ -67,7 +67,9 @@ function Login() {
                 <div className="container p-3 p-lg-5">
                     <div className="d-flex flex-column flex-md-row p-3 p-lg-5">
                         <div className="col-12 col-md-6 border">
-                            resim
+                            <div style={{ position: "relative", width: "100%", height: "100%" }}>
+                                <Image src={loginImg} fill alt="signup" />
+                            </div>
                         </div>
                         <div className="col-12 col-md-6 border p-3 p-lg-5">
                             <div className="row g-3">

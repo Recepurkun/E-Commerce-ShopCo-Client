@@ -1,7 +1,6 @@
 'use client'
 
 import { useFormik } from "formik";
-
 import { useTranslations } from "next-intl";
 import { usePathname, useRouter } from "next/navigation";
 import Spinner from "@/components/Spinner";
@@ -11,8 +10,10 @@ import { auth } from "@/firebaseConfig";
 import toast from "react-hot-toast";
 import { HeroButton } from "@/components/Hero/Styled";
 import { authSchema } from "@/shema"
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { setUser } from "@/redux/slice/authSlice";
+import Image from "next/image";
+import signUpImg from "../../../../../public/register.jpg"
 
 function SignUpForm() {
 
@@ -60,7 +61,6 @@ function SignUpForm() {
             setLoading(false);
             router.push(`/${activeLang}/login`);
         } catch (error) {
-            // const errorCode = error.code;
             const errorMessage = error.message;
             toast.error(`{t('ErrorMessage')} ${errorMessage} `, {
                 icon: '❌',
@@ -114,7 +114,9 @@ function SignUpForm() {
                 <div className="container p-3 p-lg-5">
                     <div className="d-flex flex-column flex-md-row p-3 p-lg-5">
                         <div className="col-12 col-md-6 border">
-                            resim
+                            <div style={{ position: "relative", width: "100%", height: "100%" }}>
+                                <Image src={signUpImg} fill alt="signup" />
+                            </div>
                         </div>
                         <div className="col-12 col-md-6 border p-3 p-lg-5">
                             <form

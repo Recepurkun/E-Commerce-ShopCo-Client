@@ -5,7 +5,6 @@ import {
   AllRightsReserved,
   BgUp,
   EmailInput,
-  FooterBg,
   FooterLinks,
   LatestOffer,
   ShopCoBody,
@@ -26,7 +25,7 @@ const Footer = () => {
             <div className="col-12 col-md-6 mx-auto pt-4 ps-4 p-md-5">
               <LatestOffer>{t("Offer")}</LatestOffer>
             </div>
-            <div className="col-12 col-md-3 mx-auto d-flex flex-column justify-content-center gap-3">
+            <div className="col-12 col-md-3 mx-auto d-flex flex-column justify-content-center gap-3 p-3">
               <EmailInput
                 type="text"
                 placeholder="Enter your email address"

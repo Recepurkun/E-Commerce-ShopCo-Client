@@ -1,5 +1,5 @@
 import Breadcrumb from "@/components/BreadCrumb";
-import { CartContainer, CartImageContainer, CartTitle, GoToCheckOut, ProductName, ProductPrice, SizeColor } from "./Styled";
+import { CartImageContainer, CartTitle, GoToCheckOut, ProductName, ProductPrice, SizeColor } from "./Styled";
 import urun1 from "../../../../public/assets/Product/image9.png"
 import Image from "next/image";
 import { FaMinus, FaPlus, FaRegTrashAlt, FaArrowRight } from "react-icons/fa";

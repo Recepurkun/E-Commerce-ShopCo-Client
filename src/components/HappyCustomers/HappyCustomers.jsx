@@ -20,20 +20,18 @@ const HappyCustomers = () => {
 
     fetchComments();
 
-    // Ekran boyutuna göre mobil görünüm kontrolü
     const handleResize = () => {
       setIsMobileView(window.innerWidth < 768);
     };
 
-    handleResize(); // Başlangıçta kontrol et
-    window.addEventListener("resize", handleResize); // Yeniden boyutlandırma olayını dinle
+    handleResize();
+    window.addEventListener("resize", handleResize);
 
     return () => {
-      window.removeEventListener("resize", handleResize); // Temizleme
+      window.removeEventListener("resize", handleResize);
     };
   }, []);
 
-  // Yorumların kaçarlı gruplar halinde gösterileceğini belirleme
   const getDisplayCount = () => (isMobileView ? 1 : 3);
 
   const handlePrev = () => {

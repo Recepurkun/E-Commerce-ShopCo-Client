@@ -20,6 +20,10 @@ const Navbar = () => {
     router.push(`/${activeLang}/signup`);
   };
 
+  const goToBasket = async () => {
+    router.push(`/${activeLang}/cart`);
+  };
+
   return (
     <nav className="navbar navbar-expand-lg mt-4">
       <div className="container">
@@ -39,7 +43,6 @@ const Navbar = () => {
         </Link>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav mb-2 mb-lg-0 w-75">
-            {/* Dropdown menu */}
             <li className="nav-item dropdown fw-bolder me-3">
               <Link
                 className="nav-link px-0 py-3 dropdown-toggle d-flex align-items-center"
@@ -86,6 +89,10 @@ const Navbar = () => {
                 <h6>{t("Brands")}</h6>
               </Link>
             </li>
+            <div className="d-flex d-md-none">
+              <LanguageSwitcher />
+              <ThemeToggleButton />
+            </div>
           </ul>
           <form className="d-flex w-100 justify-content-end" role="search">
             <NavbarSearch
@@ -97,14 +104,16 @@ const Navbar = () => {
           </form>
         </div>
         <div className="d-flex align-items-center">
-          <Link className="navbar-brand fw-bold" href="#">
+          <Link className="navbar-brand fw-bold" href={`/${activeLang}/cart`}>
             <SlBasket />
           </Link>
-          <button className="btn" onClick={handleSignUp}>
+          <Link className="navbar-brand fw-bold" href={`/${activeLang}/signup`}>
             <CgProfile size={16} />
-          </button>
-          <LanguageSwitcher />
-          <ThemeToggleButton />
+          </Link>
+          <div className="d-none d-lg-flex">
+            <LanguageSwitcher />
+            <ThemeToggleButton />
+          </div>
         </div>
       </div>
     </nav>
