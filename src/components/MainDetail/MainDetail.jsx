@@ -1,3 +1,4 @@
+"use client";
 import Image from "next/image";
 import {
   BigImageContainer,
@@ -18,6 +19,7 @@ import { Ranking } from "@/containers/Products/Styled";
 import BreadCrumb from "../BreadCrumb";
 import { useTranslations } from "next-intl";
 import { DetailsDivider } from "@/styles/GlobalStyled";
+import { useSelector } from "react-redux";
 
 const MainDetail = ({ product }) => {
   const {
@@ -34,6 +36,7 @@ const MainDetail = ({ product }) => {
   } = product;
   const altTexts = ["Front View", "Back View", "All Views"];
   const t = useTranslations("MainDetails");
+  const currentUser = useSelector((state) => state.user.loggedInUser);
   return (
     <div className="container">
       <div className="row">

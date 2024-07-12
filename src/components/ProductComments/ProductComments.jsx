@@ -15,10 +15,24 @@ import {
 } from "./Styled";
 import { dateFormatter } from "@/utils/dateFormatter";
 import { useTranslations } from "next-intl";
+import { postProductComment } from "@/services/api";
+import { useSelector } from "react-redux";
+import CommentModal from "./CommentModal";
 
 const ProductComments = ({ product }) => {
   const t = useTranslations("ProductComment");
   const [visibleReviews, setVisibleReviews] = useState(6);
+  const currentUser = useSelector((state) => state.user.loggedInUser);
+  const [showModal, setShowModal] = useState(false);
+
+  const [newComment, setNewComment] = useState({
+    user: currentUser,
+    comment: "",
+    rating: 0,
+    date: new Date().toISOString().slice(0, 10),
+  });
+
+  const [currentProduct, setCurrentProduct] = useState(product);
 
   const loadMoreReviews = () => {
     setVisibleReviews(
@@ -26,10 +40,38 @@ const ProductComments = ({ product }) => {
     );
   };
 
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setNewComment({
+      ...newComment,
+      [name]: value,
+    });
+  };
+
+  const handleRatingChange = (value) => {
+    setNewComment({
+      ...newComment,
+      rating: value,
+    });
+  };
+
+  const addComment = async () => {
+    const updatedProduct = { ...currentProduct };
+    updatedProduct.comments.push(newComment);
+    setCurrentProduct(updatedProduct);
+    try {
+      const cevap = await postProductComment(currentProduct.id, newComment);
+      console.log("Cevap: ", cevap);
+      setShowModal(false);
+    } catch (error) {
+      console.error("Failed to post comment:", error);
+    }
+  };
+
   return (
     <div className="container mt-8">
       <div className="row">
-        <div className="d-flex flex-row  justify-content-evenly mt-5_5 mt-md-7 border-bottom">
+        <div className="d-flex flex-row justify-content-evenly mt-5_5 mt-md-7 border-bottom">
           <ProductInfoTitle className="mb-3_5">
             {t("ProductDetails")}
           </ProductInfoTitle>
@@ -38,7 +80,7 @@ const ProductComments = ({ product }) => {
           </ProductInfoTitle>
           <ProductInfoTitle>{t("FAQs")}</ProductInfoTitle>
         </div>
-        <div className="d-flex flex-row justify-content-between my-3_5 ">
+        <div className="d-flex flex-row justify-content-between my-3_5">
           <div className="d-flex align-items-center">
             <h4 className="fw-bold">{t("AllReviews")}</h4>
             <span
@@ -81,13 +123,13 @@ const ProductComments = ({ product }) => {
                 </li>
               </ul>
             </SortButton>
-            <ReviewButton>
+            <ReviewButton onClick={() => setShowModal(true)}>
               <WriteAReview>{t("WriteAReview")}</WriteAReview>
             </ReviewButton>
           </div>
         </div>
         <div className="d-flex flex-wrap flex-row justify-content-md-center">
-          {product.comments.slice(0, visibleReviews).map((urun, index) => (
+          {product.comments.slice(0, visibleReviews).map((comment, index) => (
             <div
               className="col-12 col-md-6 border border-1 rounded-4 me-3_5 mb-3_5"
               style={{ maxWidth: 628 }}
@@ -95,21 +137,21 @@ const ProductComments = ({ product }) => {
             >
               <div className="px-4 py-4">
                 <div className="d-flex justify-content-between align-items-center">
-                  <Rating value={urun.rating} />
+                  <Rating value={comment.rating} />
                   <BsThreeDots size={24} style={{ cursor: "pointer" }} />
                 </div>
                 <div className="d-flex align-items-center mt-3">
-                  <CustomerCommentName>{urun.user}</CustomerCommentName>
+                  <CustomerCommentName>{comment.user}</CustomerCommentName>
                   <MdVerifiedUser
                     className="ms-1"
                     style={{ color: "#01AB31", height: 24, width: 24 }}
                   />
                 </div>
                 <CustomerComment className="mt-3">
-                  {urun.comment}
+                  {comment.comment}
                 </CustomerComment>
                 <p className="mt-4">
-                  {dateFormatter(urun.date)} {t("Posted")}
+                  {dateFormatter(comment.date)} {t("Posted")}
                 </p>
               </div>
             </div>
@@ -121,6 +163,15 @@ const ProductComments = ({ product }) => {
           )}
         </div>
       </div>
+      {showModal && (
+        <CommentModal
+          onClose={() => setShowModal(false)}
+          onSave={addComment}
+          newComment={newComment}
+          handleInputChange={handleInputChange}
+          handleRatingChange={handleRatingChange}
+        />
+      )}
     </div>
   );
 };

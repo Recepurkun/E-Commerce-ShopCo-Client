@@ -23,7 +23,6 @@ const customStyles = {
 
 export function Rating({ value, readOnly = true }) {
   const [rating, setRating] = useState(value);
-
   return (
     <ReactRating
       style={{ maxWidth: 100 }}
