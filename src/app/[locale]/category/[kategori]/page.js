@@ -1,6 +1,5 @@
 import { getTranslations } from "next-intl/server";
 import { getProductsForCategory } from "@/services/api";
-import Breadcrumb from "@/components/Breadcrumb";
 import RangeSliderWithLabel from "@/components/RangeSliderWithLabel";
 
 import { DetailsDivider } from "@/styles/GlobalStyled";
@@ -9,6 +8,7 @@ import FilterWrapper from "./FilterWrapper";
 import FilterAndSortProducts from "./FilterAndSortProducts";
 import SortProducts from "./SortProducts";
 import FilterModalReal from "@/components/FilterModalReal";
+import Breadcrumb from "@/components/Breadcrumb";
 
 const CategoryAndFilter = async ({ params, searchParams }) => {
     const activeCategory = params.kategori;

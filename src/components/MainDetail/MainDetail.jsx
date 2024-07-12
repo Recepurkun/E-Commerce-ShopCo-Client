@@ -14,10 +14,10 @@ import {
 import { Rating } from "../Rating/Rating";
 import { FaMinus, FaPlus } from "react-icons/fa";
 import { Ranking } from "@/containers/Products/Styled";
-import BreadCrumb from "../Breadcrumb";
 import { useTranslations } from "next-intl";
 import { DetailsDivider } from "@/styles/GlobalStyled";
 import CartButton from "./CartButton";
+import Breadcrumb from "../Breadcrumb";
 
 const MainDetail = ({ product }) => {
   const {
@@ -39,7 +39,7 @@ const MainDetail = ({ product }) => {
     <div className="container">
       <div className="row">
         <DetailsDivider />
-        <BreadCrumb category={category} gender={gender} />
+        <Breadcrumb category={category} gender={gender} />
         <div className="d-flex flex-column flex-md-row">
           <div className="d-flex flex-row flex-md-column order-2 order-md-1 me-md-3 mt-2 mt-md-0">
             {altTexts.map((alt, index) => (
