@@ -18,7 +18,7 @@ export const FilterButton = styled.div`
   width: 48px;
   height: 48px;
   border-radius: 62px;
-  background-color: #f0f0f0;
+  border: 1px solid;
 `;
 
 export const SortButton = styled(FilterButton)`

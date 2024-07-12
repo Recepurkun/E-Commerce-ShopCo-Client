@@ -23,13 +23,13 @@ const Navbar = () => {
         >
           <span className="navbar-toggler-icon"></span>
         </button>
-        <Link href="/" className="navbar-brand me-5">
+        <Link href="/" className="navbar-brand pt-0 me-5">
           <ShopCoTitle>{t("SiteName")}</ShopCoTitle>
         </Link>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav mb-2 mb-lg-0 w-75">
             <li className="nav-item dropdown fw-bolder me-3">
-              <a
+              <Link
                 className="nav-link px-0 py-3 dropdown-toggle d-flex align-items-center"
                 href="#"
                 role="button"
@@ -37,42 +37,42 @@ const Navbar = () => {
                 aria-expanded="false"
               >
                 <h6>{t("Shop")}</h6>
-              </a>
+              </Link>
               <ul className="dropdown-menu">
                 <li>
-                  <a className="dropdown-item" href="#">
-                    #
-                  </a>
+                  <Link className="dropdown-item" href="#">
+                    Casual
+                  </Link>
                 </li>
                 <li>
-                  <a className="dropdown-item" href="#">
-                    #
-                  </a>
+                  <Link className="dropdown-item" href="#">
+                    Gym
+                  </Link>
                 </li>
                 <li>
                   <hr className="dropdown-divider" />
                 </li>
                 <li>
-                  <a className="dropdown-item" href="#">
-                    #
-                  </a>
+                  <Link className="dropdown-item" href="#">
+                    Party
+                  </Link>
                 </li>
               </ul>
             </li>
             <li className="nav-item me-3">
-              <a className="nav-link px-0 py-3" aria-current="page" href="#">
+              <Link className="nav-link px-0 py-3" aria-current="page" href="#">
                 <h6> {t("OnSale")}</h6>
-              </a>
+              </Link>
             </li>
             <li className="nav-item me-3">
-              <a className="nav-link px-0 py-3" href="#">
+              <Link className="nav-link px-0 py-3" href="#">
                 <h6>{t("NewArrivals")}</h6>
-              </a>
+              </Link>
             </li>
             <li className="nav-item me-3">
-              <a className="nav-link px-0 py-3" href="#">
+              <Link className="nav-link px-0 py-3" href="#">
                 <h6>{t("Brands")}</h6>
-              </a>
+              </Link>
             </li>
           </ul>
           <form className="d-flex w-100 justify-content-end" role="search">
@@ -85,12 +85,12 @@ const Navbar = () => {
           </form>
         </div>
         <div className="d-flex ms-2 align-items-center">
-          <a className="navbar-brand fw-bold" href="#">
+          <Link className="navbar-brand fw-bold" href="#">
             <SlBasket />
-          </a>
-          <a className="navbar-brand" href="#">
+          </Link>
+          <Link className="navbar-brand" href="#">
             <CgProfile />
-          </a>
+          </Link>
           <LanguageSwitcher />
           <ThemeToggleButton />
         </div>
