@@ -5,12 +5,14 @@ import { useFormik } from "formik";
 import { useTranslations } from "next-intl";
 import { usePathname, useRouter } from "next/navigation";
 import Spinner from "@/components/Spinner";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "@/firebaseConfig";
 import toast from "react-hot-toast";
 import { HeroButton } from "@/components/Hero/Styled";
 import { authSchema } from "@/shema"
+import { useSelector, useDispatch } from "react-redux";
+import { setUser } from "@/redux/slice/authSlice";
 
 function SignUpForm() {
 
@@ -18,6 +20,16 @@ function SignUpForm() {
     const router = useRouter();
     const activeUrl = usePathname()
     const activeLang = activeUrl.split('/')[1];
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        if (typeof window !== "undefined") {
+            const loggedInUsers = localStorage.getItem("loggedInUsers") || "";
+            if (loggedInUsers) {
+                dispatch(setUser(loggedInUsers));
+            }
+        }
+    }, [dispatch]);
 
     const delay = async (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
@@ -30,11 +42,9 @@ function SignUpForm() {
         setLoading(true);
         try {
             const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-            // console.log("userCredential: ", userCredential.email);
+            const userEmail = userCredential.user.email;
 
-            const existingUsers = JSON.parse(localStorage.getItem("userData")) || [];
-            existingUsers.push(values);
-            localStorage.setItem("userData", JSON.stringify(existingUsers));
+            dispatch(setUser(userEmail))
 
             toast.success(t('SuccessMessage'), {
                 icon: '🚀',
@@ -46,7 +56,7 @@ function SignUpForm() {
                     color: '#fff',
                 },
             });
-            await delay(1500);
+            await delay(1000);
             setLoading(false);
             router.push(`/${activeLang}/login`);
         } catch (error) {
@@ -92,6 +102,7 @@ function SignUpForm() {
     });
 
     const t = useTranslations("SignUp");
+
 
     return (
         <div>

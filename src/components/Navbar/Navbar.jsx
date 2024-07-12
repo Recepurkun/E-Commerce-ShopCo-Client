@@ -1,3 +1,5 @@
+"use client";
+import React, { useState } from "react";
 import "./style.css";
 import { NavbarSearch, ShopCoTitle } from "./Styled";
 import { CgProfile } from "react-icons/cg";
@@ -6,9 +8,18 @@ import Link from "next/link";
 import LanguageSwitcher from "../LanguageSwitcher";
 import { useTranslations } from "next-intl";
 import ThemeToggleButton from "../ThemeToggleButton";
+import { usePathname, useRouter } from "next/navigation";
 
 const Navbar = () => {
   const t = useTranslations("Navbar");
+  const router = useRouter();
+  const activeUrl = usePathname();
+  const activeLang = activeUrl.split("/")[1];
+
+  const handleSignUp = async () => {
+    router.push(`/${activeLang}/signup`);
+  };
+
   return (
     <nav className="navbar navbar-expand-lg mt-4">
       <div className="container">
@@ -28,6 +39,7 @@ const Navbar = () => {
         </Link>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav mb-2 mb-lg-0 w-75">
+            {/* Dropdown menu */}
             <li className="nav-item dropdown fw-bolder me-3">
               <Link
                 className="nav-link px-0 py-3 dropdown-toggle d-flex align-items-center"
@@ -84,13 +96,13 @@ const Navbar = () => {
             />
           </form>
         </div>
-        <div className="d-flex ms-2 align-items-center">
+        <div className="d-flex align-items-center">
           <Link className="navbar-brand fw-bold" href="#">
             <SlBasket />
           </Link>
-          <Link className="navbar-brand" href="#">
-            <CgProfile />
-          </Link>
+          <button className="btn" onClick={handleSignUp}>
+            <CgProfile size={16} />
+          </button>
           <LanguageSwitcher />
           <ThemeToggleButton />
         </div>
