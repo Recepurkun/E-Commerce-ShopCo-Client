@@ -14,7 +14,7 @@ import {
 import { Rating } from "../Rating/Rating";
 import { FaMinus, FaPlus } from "react-icons/fa";
 import { Ranking } from "@/containers/Products/Styled";
-import BreadCrumb from "../BreadCrumb";
+import BreadCrumb from "../Breadcrumb";
 import { useTranslations } from "next-intl";
 import { DetailsDivider } from "@/styles/GlobalStyled";
 import CartButton from "./CartButton";

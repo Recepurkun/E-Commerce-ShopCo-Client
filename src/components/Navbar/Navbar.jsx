@@ -89,10 +89,6 @@ const Navbar = () => {
                 <h6>{t("Brands")}</h6>
               </Link>
             </li>
-            <div className="d-flex d-md-none">
-              <LanguageSwitcher />
-              <ThemeToggleButton />
-            </div>
           </ul>
           <form className="d-flex w-100 justify-content-end" role="search">
             <NavbarSearch
@@ -110,10 +106,8 @@ const Navbar = () => {
           <Link className="navbar-brand fw-bold" href={`/${activeLang}/signup`}>
             <CgProfile size={16} />
           </Link>
-          <div className="d-none d-lg-flex">
-            <LanguageSwitcher />
-            <ThemeToggleButton />
-          </div>
+          <LanguageSwitcher />
+          <ThemeToggleButton />
         </div>
       </div>
     </nav>
