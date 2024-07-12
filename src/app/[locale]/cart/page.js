@@ -1,4 +1,4 @@
-import Breadcrumb from "@/components/Breadcrumb";
+import Breadcrumb from "@/components/CustomBreadcrumb/Breadcrumb";
 import { CartImageContainer, CartTitle, GoToCheckOut, ProductName, ProductPrice, SizeColor } from "./Styled";
 import urun1 from "../../../../public/assets/Product/image9.png"
 import Image from "next/image";

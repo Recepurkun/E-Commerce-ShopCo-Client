@@ -8,7 +8,7 @@ import FilterWrapper from "./FilterWrapper";
 import FilterAndSortProducts from "./FilterAndSortProducts";
 import SortProducts from "./SortProducts";
 import FilterModalReal from "@/components/FilterModalReal";
-import Breadcrumb from "@/components/Breadcrumb";
+import Breadcrumb from "@/components/CustomBreadcrumb/Breadcrumb";
 
 const CategoryAndFilter = async ({ params, searchParams }) => {
     const activeCategory = params.kategori;

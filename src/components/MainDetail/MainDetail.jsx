@@ -17,7 +17,7 @@ import { Ranking } from "@/containers/Products/Styled";
 import { useTranslations } from "next-intl";
 import { DetailsDivider } from "@/styles/GlobalStyled";
 import CartButton from "./CartButton";
-import Breadcrumb from "../Breadcrumb";
+import Breadcrumb from "../CustomBreadcrumb/Breadcrumb";
 
 const MainDetail = ({ product }) => {
   const {
