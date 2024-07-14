@@ -5,7 +5,11 @@
     "OnSale": "On Sale",
     "NewArrivals": "New Arrivals",
     "Brands": "Brands",
-    "NavbarDescription": "Navbar Descripton Hello world!"
+    "Must": "You must enter at least 3 letters to start searching for products.",
+    "CantFind": "We couldn't find the product you were looking for.",
+    "SearchProduct": "Search for products",
+    "CloseBtn": "Close",
+    "Result": "Related Results"
   },
   "Banner": {
     "Title": "Sign up and get 20% off to your first order.",

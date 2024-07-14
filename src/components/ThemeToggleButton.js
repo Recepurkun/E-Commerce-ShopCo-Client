@@ -32,7 +32,7 @@ const ThemeToggleButton = () => {
 
     return (
         <button id="theme-toggle-button">
-            {theme === "dark" ? <IoMdSunny size={30} /> : <IoMdMoon size={30} />}
+            {theme === "dark" ? <IoMdSunny size={20} /> : <IoMdMoon size={20} />}
         </button>
     );
 };

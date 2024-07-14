@@ -18,7 +18,7 @@ const ProductList = ({ title = "", products, showAll = false }) => {
     <div className="container">
       <div className="row">
         {title ? <ArrivalsTitle className="mt-6_5">{title}</ArrivalsTitle> : ""}
-        <div className="d-flex flex-wrap flex-md-row justify-content-between">
+        <div className="d-flex flex-wrap flex-md-row justify-content-center">
           {visibleProducts.map((product) => (
             <ProductCard key={product.id} product={product} />
           ))}

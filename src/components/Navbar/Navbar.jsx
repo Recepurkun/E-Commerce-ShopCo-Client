@@ -1,28 +1,19 @@
 "use client";
-import React, { useState } from "react";
 import "./style.css";
-import { NavbarSearch, ShopCoTitle } from "./Styled";
+import { ShopCoTitle } from "./Styled";
 import { CgProfile } from "react-icons/cg";
 import { SlBasket } from "react-icons/sl";
 import Link from "next/link";
 import LanguageSwitcher from "../LanguageSwitcher";
 import { useTranslations } from "next-intl";
 import ThemeToggleButton from "../ThemeToggleButton";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
+import Search from "./Search";
 
 const Navbar = () => {
   const t = useTranslations("Navbar");
-  const router = useRouter();
   const activeUrl = usePathname();
   const activeLang = activeUrl.split("/")[1];
-
-  const handleSignUp = async () => {
-    router.push(`/${activeLang}/signup`);
-  };
-
-  const goToBasket = async () => {
-    router.push(`/${activeLang}/cart`);
-  };
 
   return (
     <nav className="navbar navbar-expand-lg mt-4">
@@ -91,20 +82,15 @@ const Navbar = () => {
             </li>
           </ul>
           <form className="d-flex w-100 justify-content-end" role="search">
-            <NavbarSearch
-              className="form-control me-2"
-              type="search"
-              placeholder="Search"
-              aria-label="Search"
-            />
+            <Search />
           </form>
         </div>
         <div className="d-flex align-items-center">
           <Link className="navbar-brand fw-bold" href={`/${activeLang}/cart`}>
-            <SlBasket />
+            <SlBasket size={20} />
           </Link>
           <Link className="navbar-brand fw-bold" href={`/${activeLang}/signup`}>
-            <CgProfile size={16} />
+            <CgProfile size={20} />
           </Link>
           <LanguageSwitcher />
           <ThemeToggleButton />

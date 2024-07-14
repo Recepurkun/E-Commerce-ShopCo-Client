@@ -5,7 +5,11 @@
     "OnSale": "İndirimde",
     "NewArrivals": "Yeni Gelenler",
     "Brands": "Markalar",
-    "NavbarDescription": "Navbar Açıklama Merhaba Dünya!"
+    "Must": "Ürün aramaya başlamak için en az 3 harf girmelisiniz.",
+    "CantFind": "Aradığınız ürünü bulamadık.",
+    "SearchProduct": "Ürün Ara",
+    "CloseBtn": "Kapat",
+    "Result": "İlgili Sonuçlar"
   },
   "Banner": {
     "Title": "Kaydolun ve ilk siparişinizde %20 indirim kazanın.",

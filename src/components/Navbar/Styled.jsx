@@ -17,7 +17,5 @@ export const NavbarSearch = styled.input`
   max-width: 577px;
   max-height: 48px;
   border-radius: 62px;
-  padding: 12px 16px;
-  background-color: ${(props) => props.theme.inputBackground};
-  color: ${(props) => props.theme.text};
+  padding: 12px 45px;
 `;

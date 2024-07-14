@@ -45,6 +45,7 @@ const nextConfig = {
         styledComponents: {
             displayName: true,
         },
+        reactStrictMode: false,
     },
     env: {
         NEXT_PUBLIC_FIREBASE_API_KEY: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
