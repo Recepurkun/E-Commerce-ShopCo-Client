@@ -1,36 +1,49 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const getUserFromStorage = () => {
-    if (typeof window !== "undefined") {
-        const user = window.localStorage.getItem("loggedInUser");
-        return user ? JSON.parse(user) : "";
-    }
-    return "";
+const loadUsersFromLocalStorage = () => {
+    const savedUsers = localStorage.getItem("users");
+    return savedUsers ? JSON.parse(savedUsers) : [];
 };
 
-const initialState = {
-    loggedInUser: getUserFromStorage(),
+const saveUsersToLocalStorage = (user) => {
+    localStorage.setItem("users", JSON.stringify(user));
 };
+
+const loadCurrentUserMail = () => {
+    const currentEmail = localStorage.getItem("currentUserEmail");
+    return currentEmail ? JSON.parse(currentEmail) : ""
+}
+
+const saveUserEmailToLocalStorage = (email) => {
+    localStorage.setItem("currentUserEmail", JSON.stringify(email))
+}
+
+const initialState = {
+    isActiveUser: false,
+    currentUserEmail: loadCurrentUserMail(),
+    users: loadUsersFromLocalStorage(),
+};
+
 
 const authSlice = createSlice({
     name: "auth",
     initialState,
     reducers: {
+        addToUser: (state, action) => {
+            state.isActiveUser = true;
+            state.users.push(action.payload);
+            saveUsersToLocalStorage(state.users);
+        },
         setUser: (state, action) => {
-            if (typeof window !== "undefined") {
-                localStorage.setItem("loggedInUser", JSON.stringify(action.payload));
-            }
-            state.loggedInUser = action.payload;
+            state.currentUserEmail = action.payload;
+            saveUserEmailToLocalStorage(state.currentUserEmail)
         },
-        clearUser: (state) => {
-            if (typeof window !== "undefined") {
-                localStorage.removeItem("loggedInUser");
-            }
-            state.loggedInUser = "";
-        },
+        logout: (state) => {
+            state.isActiveUser = false;
+            state.currentUserEmail = "";
+        }
     },
 });
 
-export const { setUser, clearUser } = authSlice.actions;
+export const { addToUser, setUser, logout } = authSlice.actions;
 export default authSlice.reducer;
-

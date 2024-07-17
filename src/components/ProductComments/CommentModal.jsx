@@ -28,7 +28,7 @@ const CommentModal = ({
               onChange={handleInputChange}
             />
           </Form.Group>
-          <Form.Group controlId="rating">
+          <Form.Group controlId="rating" className="mt-2">
             <Form.Label>Rating</Form.Label>
             <Rating
               value={newComment.rating}
@@ -39,11 +39,11 @@ const CommentModal = ({
         </Form>
       </Modal.Body>
       <Modal.Footer>
-        <Button variant="secondary" onClick={onClose}>
-          Close
+        <Button variant="dark" onClick={onClose}>
+          Çık
         </Button>
-        <Button variant="primary" onClick={onSave}>
-          Save
+        <Button variant="success" onClick={onSave}>
+          Yorum Yap
         </Button>
       </Modal.Footer>
     </Modal>

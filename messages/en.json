@@ -140,18 +140,20 @@
     "Gender": "Gender",
     "ElectronicMesage": "I agree to receive electronic messages.",
     "Data": "I accept the information text regarding the processing of my personal data",
-    "SignInBtn": "Sign In",
+    "SignIn": "Sign In",
+    "Login": "Login",
     "Man": "Man",
     "Woman": "Woman",
     "SuccessMessage": "Your account has been successfully created!",
     "ErrorMessage": "An error was encountered while creating your account!",
-    "LoginBtn": "Login",
-    "EnterPassword": "Enter Your Password",
-    "EnterEmail": "Enter Your Email",
+    "EnterPassword": "******",
+    "EnterEmail": "name@example.com",
     "EnterName": "Enter Your Name",
     "EnterLastName": "Enter Your Last Name",
     "EnterCity": "Enter Your City",
     "EnterAge": "Enter Your Age",
-    "SelectGenderLabel": "Select Gender"
+    "SelectGenderLabel": "Select Gender",
+    "DontHaveAccount": "Don't have an account?",
+    "AlreadyHaveAccount": "Already have an account?"
   }
 }

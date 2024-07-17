@@ -1,25 +1,30 @@
-import { clearUser } from "@/redux/slice/authSlice";
+import { signOut } from "firebase/auth";
 import { useDispatch } from "react-redux";
-import { CiLogout } from "react-icons/ci";
 import { usePathname, useRouter } from "next/navigation";
+import { auth } from "@/firebaseConfig";
+import { setUser } from "@/redux/slice/authSlice";
+import { HeroButton } from "@/components/Hero/Styled";
+import toast from "react-hot-toast";
 
 const Logout = () => {
-  const router = useRouter();
   const dispatch = useDispatch();
+  const router = useRouter();
   const activeUrl = usePathname();
   const activeLang = activeUrl.split("/")[1];
 
-  const handleLogout = () => {
-    dispatch(clearUser());
-    router.push(`/${activeLang}`);
+  const handleLogout = async () => {
+    try {
+      await signOut(auth);
+      dispatch(setUser(""));
+      toast.success("Başarıyla çıkış yapıldı!");
+      router.push(`/${activeLang}`);
+    } catch (error) {
+      console.error("Logout failed: ", error.message);
+      toast.error("Logout failed: ", error.message);
+    }
   };
 
-  return (
-    <button className="btn btn-lg btn-success" onClick={handleLogout}>
-      Logout
-      <CiLogout />
-    </button>
-  );
+  return <HeroButton onClick={handleLogout}>Çıkış Yap</HeroButton>;
 };
 
 export default Logout;

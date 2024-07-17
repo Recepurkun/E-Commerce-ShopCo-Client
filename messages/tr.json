@@ -141,18 +141,20 @@
     "Gender": "Cinsiyet",
     "ElectronicMesage": "Tarafıma elektronik ileti gönderilmesini kabul ediyorum.",
     "Data": "Kişisel verilerimin işlenmesine yönelik aydınlatma metnini kabul ediyorum",
-    "SignInBtn": "Kayıt Ol",
+    "SignIn": "Kayıt Ol",
+    "Login": "Giriş Yap",
     "Man": "Erkek",
     "Woman": "Kadın",
     "SuccessMessage": "Hesabınız başarıyla oluşturuldu!",
     "ErrorMessage": "Hesabınız oluşturulurken hatayla karşılaşıldı!",
-    "LoginBtn": "Giriş Yap",
-    "EnterPassword": "Şifrenizi Giriniz",
-    "EnterEmail": "Emailinizi Giriniz",
+    "EnterPassword": "******",
+    "EnterEmail": "name@example.com",
     "EnterName": "İsminizi Giriniz",
     "EnterLastName": "Soyisminizi Giriniz",
     "EnterCity": "Şehrinizi Giriniz",
     "EnterAge": "Yaşınızı Giriniz",
-    "SelectGenderLabel": "Cinsiyetinizi Seçiniz"
+    "SelectGenderLabel": "Cinsiyetinizi Seçiniz",
+    "DontHaveAccount": "Hesabınız yok mu?",
+    "AlreadyHaveAccount": "Zaten hesabınız var mı?"
   }
 }

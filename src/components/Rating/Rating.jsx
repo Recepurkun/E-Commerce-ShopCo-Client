@@ -1,6 +1,5 @@
 "use client";
-
-import { useState } from "react";
+import React, { useState } from "react";
 import { Rating as ReactRating } from "@smastrom/react-rating";
 
 const StarDrawing = (
@@ -18,16 +17,21 @@ const customStyles = {
   itemShapes: StarDrawing,
   activeFillColor: "#fcc73d",
   inactiveFillColor: "#d2e5e3",
-  // inactiveFillColor: '#BBF7D0',
 };
 
-export function Rating({ value, readOnly = true }) {
+export function Rating({ value, readOnly = true, onChange }) {
   const [rating, setRating] = useState(value);
+
+  const handleRatingChange = (newValue) => {
+    setRating(newValue);
+    onChange(newValue);
+  };
+
   return (
     <ReactRating
       style={{ maxWidth: 100 }}
       value={rating}
-      onChange={setRating}
+      onChange={handleRatingChange}
       readOnly={readOnly}
       itemStyles={customStyles}
     />

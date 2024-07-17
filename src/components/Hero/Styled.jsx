@@ -41,7 +41,7 @@ export const HeroButton = styled.button`
   @media screen and (max-width: 425px) {
     font-size: 14px;
     line-height: 20px;
-    margin-top: 20px;
+    /* margin-top: 20px; */
     width: 100%;
   }
 `;
@@ -67,4 +67,14 @@ export const VerticalDivider = styled.hr`
   margin-right: 32px;
   color: black;
   width: 1px;
+`;
+
+export const GoToHomepageBtn = styled(HeroButton)`
+  background-color: #b22222; /* Deep Sky Blue */
+  padding: 8px 30px;
+`;
+
+export const GoToCartBtn = styled(HeroButton)`
+  background-color: #001f3f; /* Emerald */
+  padding: 8px 30px;
 `;

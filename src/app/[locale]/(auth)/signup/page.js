@@ -11,9 +11,10 @@ import toast from "react-hot-toast";
 import { HeroButton } from "@/components/Hero/Styled";
 import { authSchema } from "@/shema"
 import { useDispatch } from "react-redux";
-import { setUser } from "@/redux/slice/authSlice";
 import Image from "next/image";
 import signUpImg from "../../../../../public/register.jpg"
+import Link from "next/link";
+import { addToUser } from "@/redux/slice/authSlice";
 
 function SignUpForm() {
 
@@ -32,10 +33,8 @@ function SignUpForm() {
         }
     }, [dispatch]);
 
-    const delay = async (ms) => new Promise((resolve) => setTimeout(resolve, ms));
-
     const onSubmit = async (values, actions) => {
-        const { name, email, password } = values;
+        const { email, name, password, surname, age, city, gender } = values;
         if (!name || !email || !password) {
             alert(t('AllFieldsRequired'));
             return;
@@ -44,8 +43,16 @@ function SignUpForm() {
         try {
             const userCredential = await createUserWithEmailAndPassword(auth, email, password);
             const userEmail = userCredential.user.email;
-
-            dispatch(setUser(userEmail))
+            const gercekUser = {
+                user_email: userEmail,
+                user_name: name,
+                user_surname: surname,
+                user_age: age,
+                user_city: city,
+                user_gender: gender
+            }
+            dispatch(addToUser(gercekUser))
+            setLoading(false);
 
             toast.success(t('SuccessMessage'), {
                 icon: '🚀',
@@ -57,8 +64,6 @@ function SignUpForm() {
                     color: '#fff',
                 },
             });
-            await delay(1000);
-            setLoading(false);
             router.push(`/${activeLang}/login`);
         } catch (error) {
             const errorMessage = error.message;
@@ -113,12 +118,12 @@ function SignUpForm() {
             ) : (
                 <div className="container p-3 p-lg-5">
                     <div className="d-flex flex-column flex-md-row p-3 p-lg-5">
-                        <div className="col-12 col-md-6 border">
+                        <div className="col-12 col-md-6 ">
                             <div style={{ position: "relative", width: "100%", height: "100%" }}>
-                                <Image src={signUpImg} fill alt="signup" />
+                                <Image src={signUpImg} fill alt="signup" className="rounded-4" />
                             </div>
                         </div>
-                        <div className="col-12 col-md-6 border p-3 p-lg-5">
+                        <div className="col-12 col-md-6  p-3 p-lg-5">
                             <form
                                 className="row g-3"
                                 onSubmit={handleSubmit}
@@ -315,12 +320,18 @@ function SignUpForm() {
                                         )}
                                     </div>
                                 </div>
+                                <h6 className="text-end">{t('AlreadyHaveAccount')}
+                                    <Link className="text-decoration-underline ms-1" href={`/${activeLang}/login`}>
+                                        {t('Login')}
+                                    </Link>
+                                </h6>
                                 <div className="d-flex justify-content-center pt-3">
                                     <HeroButton type="submit" disabled={isSubmitting} className="w-100">
-                                        {t('SignInBtn')}
+                                        {t('SignIn')}
                                     </HeroButton>
                                 </div>
                             </form>
+
                         </div>
                     </div>
                 </div>)}

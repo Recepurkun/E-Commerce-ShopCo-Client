@@ -18,15 +18,25 @@ import { useTranslations } from "next-intl";
 import { postProductComment } from "@/services/api";
 import { useSelector } from "react-redux";
 import CommentModal from "./CommentModal";
+import toast from "react-hot-toast";
 
 const ProductComments = ({ product }) => {
   const t = useTranslations("ProductComment");
   const [visibleReviews, setVisibleReviews] = useState(6);
-  const currentUser = useSelector((state) => state.user.loggedInUser);
+  const currentUser = useSelector((state) => state.user.currentUserEmail);
   const [showModal, setShowModal] = useState(false);
 
+  const users =
+    typeof window !== "undefined"
+      ? JSON.parse(localStorage.getItem("users")) || []
+      : [];
+
+  const getCurrentUserInfo = users.filter((n) => n.user_email === currentUser);
+
   const [newComment, setNewComment] = useState({
-    user: currentUser,
+    user: getCurrentUserInfo.length
+      ? getCurrentUserInfo[0].user_name
+      : currentUser,
     comment: "",
     rating: 0,
     date: new Date().toISOString().slice(0, 10),
@@ -49,10 +59,10 @@ const ProductComments = ({ product }) => {
   };
 
   const handleRatingChange = (value) => {
-    setNewComment({
-      ...newComment,
+    setNewComment((prevComment) => ({
+      ...prevComment,
       rating: value,
-    });
+    }));
   };
 
   const addComment = async () => {
@@ -61,10 +71,11 @@ const ProductComments = ({ product }) => {
     setCurrentProduct(updatedProduct);
     try {
       const cevap = await postProductComment(currentProduct.id, newComment);
-      console.log("Cevap: ", cevap);
       setShowModal(false);
+      toast.success("Yorum Eklendi!");
     } catch (error) {
       console.error("Failed to post comment:", error);
+      toast.error("Failed to post comment!", error.message);
     }
   };
 
