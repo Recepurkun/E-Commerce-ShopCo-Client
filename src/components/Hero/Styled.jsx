@@ -8,7 +8,7 @@ export const HeroContainer = styled.div`
 export const HeroTitle = styled.h1`
   font-size: 64px;
   font-weight: 700;
-  font-family: "Integral CF Bold";
+  font-family: "Integral CF";
   margin-top: 105px;
   line-height: 64px;
   color: #000;

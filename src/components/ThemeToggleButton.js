@@ -31,8 +31,8 @@ const ThemeToggleButton = () => {
     }, [theme]);
 
     return (
-        <button id="theme-toggle-button">
-            {theme === "dark" ? <IoMdSunny size={20} /> : <IoMdMoon size={20} />}
+        <button id="theme-toggle-button" aria-label={theme === "dark" ? "Switch to light theme" : "Switch to dark theme"}>
+            {theme === "dark" ? <IoMdSunny size={25} /> : <IoMdMoon size={25} />}
         </button>
     );
 };

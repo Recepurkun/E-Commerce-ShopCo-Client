@@ -46,37 +46,55 @@ const Navbar = () => {
               </Link>
               <ul className="dropdown-menu">
                 <li>
-                  <Link className="dropdown-item" href="#">
+                  <Link
+                    className="dropdown-item"
+                    href={`/${activeLang}/category/casual`}
+                  >
                     Casual
                   </Link>
                 </li>
                 <li>
-                  <Link className="dropdown-item" href="#">
+                  <Link
+                    className="dropdown-item"
+                    href={`/${activeLang}/category/gym`}
+                  >
                     Gym
                   </Link>
                 </li>
                 <li>
-                  <hr className="dropdown-divider" />
+                  <Link
+                    className="dropdown-item"
+                    href={`/${activeLang}/category/party`}
+                  >
+                    Party
+                  </Link>
                 </li>
                 <li>
-                  <Link className="dropdown-item" href="#">
-                    Party
+                  <Link
+                    className="dropdown-item"
+                    href={`/${activeLang}/category/formal`}
+                  >
+                    Formal
                   </Link>
                 </li>
               </ul>
             </li>
             <li className="nav-item me-3">
-              <Link className="nav-link px-0 py-3" aria-current="page" href="#">
+              <Link
+                className="nav-link px-0 py-3"
+                aria-current="page"
+                href="#TopSelling"
+              >
                 <h6> {t("OnSale")}</h6>
               </Link>
             </li>
             <li className="nav-item me-3">
-              <Link className="nav-link px-0 py-3" href="#">
+              <Link className="nav-link px-0 py-3" href="#newArrivals">
                 <h6>{t("NewArrivals")}</h6>
               </Link>
             </li>
             <li className="nav-item me-3">
-              <Link className="nav-link px-0 py-3" href="#">
+              <Link className="nav-link px-0 py-3" href="#brands">
                 <h6>{t("Brands")}</h6>
               </Link>
             </li>
@@ -85,12 +103,20 @@ const Navbar = () => {
             <Search />
           </form>
         </div>
-        <div className="d-flex align-items-center">
-          <Link className="navbar-brand fw-bold" href={`/${activeLang}/cart`}>
-            <SlBasket size={20} />
+        <div className="d-flex align-items-center gap-2">
+          <Link
+            className="fw-bold me-1 "
+            href={`/${activeLang}/cart`}
+            aria-label="Go to cart"
+          >
+            <SlBasket size={25} />
           </Link>
-          <Link className="navbar-brand fw-bold" href={`/${activeLang}/signup`}>
-            <CgProfile size={20} />
+          <Link
+            className="fw-bold me-1"
+            href={`/${activeLang}/signup`}
+            aria-label="Go to signup"
+          >
+            <CgProfile size={25} />
           </Link>
           <LanguageSwitcher />
           <ThemeToggleButton />

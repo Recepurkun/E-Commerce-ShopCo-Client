@@ -14,7 +14,7 @@ const DressStyle = () => {
   const pathname = usePathname();
 
   return (
-    <DressWrapper className="container">
+    <DressWrapper className="container" id="brands">
       <div className="row">
         <DressTitle>{t("title")}</DressTitle>
         <div className="d-flex flex-column justify-content-center px-6">
@@ -33,7 +33,7 @@ const DressStyle = () => {
                   className="rounded-4 w-100"
                   width={407}
                   height={289}
-                  priority
+                  priority={false}
                   sizes="(max-width: 425px) 190px, 310px"
                 />
               </Link>
@@ -52,7 +52,7 @@ const DressStyle = () => {
                   className="rounded-4 w-100"
                   width={684}
                   height={289}
-                  priority
+                  priority={false}
                   sizes="(max-width: 425px) 190px, 310px"
                 />
               </Link>
@@ -73,7 +73,7 @@ const DressStyle = () => {
                   className="rounded-4 w-100"
                   width={684}
                   height={289}
-                  priority
+                  priority={false}
                   sizes="(max-width: 425px) 190px, 310px"
                 />
               </Link>
@@ -92,7 +92,7 @@ const DressStyle = () => {
                   className="rounded-4 w-100"
                   width={407}
                   height={289}
-                  priority
+                  priority={false}
                   sizes="(max-width: 425px) 190px, 310px"
                 />
               </Link>

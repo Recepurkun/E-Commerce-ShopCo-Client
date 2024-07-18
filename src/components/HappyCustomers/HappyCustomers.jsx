@@ -63,6 +63,7 @@ const HappyCustomers = () => {
             className="border-0 me-3"
             onClick={handlePrev}
             disabled={isPrevDisabled}
+            aria-label="Swipe left for customer reviews"
           >
             <FaArrowLeft />
           </button>
@@ -70,6 +71,7 @@ const HappyCustomers = () => {
             className="border-0"
             onClick={handleNext}
             disabled={isNextDisabled}
+            aria-label="Swipe right for customer reviews"
           >
             <FaArrowRight />
           </button>

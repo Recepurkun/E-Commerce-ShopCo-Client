@@ -1,3 +1,4 @@
+"use client";
 import Image from "next/image";
 import {
   HeroContainer,
@@ -9,9 +10,13 @@ import {
 } from "./Styled";
 import HeroImg from "@/assets/Hero/hero.png";
 import { useTranslations } from "next-intl";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const Hero = () => {
   const t = useTranslations("Hero");
+  const activeUrl = usePathname();
+  const activeLang = activeUrl.split("/")[1];
 
   return (
     <HeroContainer>
@@ -21,7 +26,9 @@ const Hero = () => {
             <HeroTitle>{t("title")}</HeroTitle>
             <HeroP>{t("titleDescription")}</HeroP>
             <HeroButton className="mt-4 mt-md-4_5">
-              {t("ShopNowBtn")}
+              <Link href={`/${activeLang}/category/casual`} target="_blank">
+                {t("ShopNowBtn")}
+              </Link>
             </HeroButton>
             <div className="d-flex flex-row flex-wrap justify-content-center align-items-center mt-3_5 mt-md-4_5">
               <div className="d-flex flex-column">

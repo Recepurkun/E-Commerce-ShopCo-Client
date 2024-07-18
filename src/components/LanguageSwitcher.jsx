@@ -19,15 +19,18 @@ const LanguageSwitcher = () => {
   };
 
   return (
-    <select
-      defaultValue={localActive}
-      onChange={onSelectChange}
-      disabled={isPending}
-      className="form-select form-select-sm me-3"
-    >
-      <option value="tr">TR</option>
-      <option value="en">EN</option>
-    </select>
+    <div className="me-1">
+      <select
+        id="language-switcher"
+        defaultValue={localActive}
+        onChange={onSelectChange}
+        disabled={isPending}
+        className="form-select form-select-sm "
+      >
+        <option value="tr">TR</option>
+        <option value="en">EN</option>
+      </select>
+    </div>
   );
 };
 
