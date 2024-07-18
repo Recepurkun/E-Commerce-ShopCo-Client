@@ -1,5 +1,5 @@
-const apiUrl = "http://localhost:5500";
-// const apiUrl = "https://e-commerce-shop-co-server.vercel.app/";
+// const apiUrl = "http://localhost:5500";
+const apiUrl = "https://e-commerce-shop-co-server.vercel.app/";
 //* CORS HATASI VEREBİLİYOR. 
 
 const fetchData = async (url, options) => {
