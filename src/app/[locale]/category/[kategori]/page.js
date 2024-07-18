@@ -31,7 +31,7 @@ const CategoryAndFilter = async ({ params, searchParams }) => {
             <div className="d-flex flex-column flex-lg-row">
                 <div className="d-lg-flex col-lg-2 flex-wrap align-content-between me-md-3_5">
                     <div className="d-flex flex-column">
-                        <div className="border px-2 py-3 my-2">
+                        <div className="border rounded-4 px-3 py-3 my-3">
                             <div className="d-flex justify-content-between align-items-center">
                                 <h5 className="fw-bold">{t("Filters")}</h5>
                                 {/* <FilterModalReal /> */}

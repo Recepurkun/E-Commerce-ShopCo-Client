@@ -6,6 +6,7 @@ import ColorPicker from "@/utils/ColorPicker";
 import SizePicker from "@/utils//SizePicker";
 import CategoryPicker from "@/utils/CategoryPicker";
 import { DetailsDivider } from "@/styles/GlobalStyled";
+import DressPicker from "@/utils/DressPicker";
 
 const FilterWrapper = ({ filters, RangeSliderWithLabel }) => {
   const router = useRouter();
@@ -16,16 +17,24 @@ const FilterWrapper = ({ filters, RangeSliderWithLabel }) => {
 
     value = value.toLowerCase();
 
-    if (type === "colors" || type === "sizes") {
-      filterValues = [value];
-    } else if (type === "category") {
-      filterValues = [value.toLowerCase()];
+    // if (type === "colors" || type === "sizes") {
+    //   filterValues = [value];
+    // } else if (type === "category") {
+    //   filterValues = [value.toLowerCase()];
+    // } else {
+    //   if (filterValues.includes(value)) {
+    //     filterValues.splice(filterValues.indexOf(value), 1);
+    //   } else {
+    //     filterValues.push(value);
+    //   }
+    // }
+
+    if (filterValues.includes(value)) {
+      filterValues = filterValues.filter(
+        (filterValue) => filterValue !== value
+      );
     } else {
-      if (filterValues.includes(value)) {
-        filterValues.splice(filterValues.indexOf(value), 1);
-      } else {
-        filterValues.push(value);
-      }
+      filterValues.push(value);
     }
 
     if (filterValues.length > 0) {
@@ -53,6 +62,11 @@ const FilterWrapper = ({ filters, RangeSliderWithLabel }) => {
       />
       <DetailsDivider />
       <SizePicker
+        selectedSizes={filters.sizes}
+        onFilterChange={(value) => handleFilterChange("sizes", value)}
+      />
+      <DetailsDivider />
+      <DressPicker
         selectedSizes={filters.sizes}
         onFilterChange={(value) => handleFilterChange("sizes", value)}
       />

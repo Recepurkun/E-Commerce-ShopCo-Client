@@ -9,7 +9,8 @@
     "CantFind": "We couldn't find the product you were looking for.",
     "SearchProduct": "Search for products",
     "CloseBtn": "Close",
-    "Result": "Related Results"
+    "Result": "Related Results",
+    "TooltipHasNoActiveUser": "Please log in first to see your cart!"
   },
   "Banner": {
     "Title": "Sign up and get 20% off to your first order.",

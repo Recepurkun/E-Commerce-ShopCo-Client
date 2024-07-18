@@ -9,11 +9,15 @@ import { useTranslations } from "next-intl";
 import ThemeToggleButton from "../ThemeToggleButton";
 import { usePathname } from "next/navigation";
 import Search from "./Search";
+import { useSelector } from "react-redux";
+import { Tooltip } from "react-tooltip";
 
 const Navbar = () => {
   const t = useTranslations("Navbar");
   const activeUrl = usePathname();
   const activeLang = activeUrl.split("/")[1];
+
+  const activeUser = useSelector((state) => state.user.currentUserEmail);
 
   return (
     <nav className="navbar navbar-expand-lg mt-4">
@@ -108,16 +112,39 @@ const Navbar = () => {
             className="fw-bold me-1 "
             href={`/${activeLang}/cart`}
             aria-label="Go to cart"
+            data-tooltip-content={
+              !activeUser ? t("TooltipHasNoActiveUser") : "e"
+            }
+            data-tooltip-id="cartTooltip"
+            data-tooltip-place="bottom"
+            onClick={(e) => {
+              if (!activeUser) {
+                e.preventDefault();
+              }
+            }}
           >
             <SlBasket size={25} />
+            {!activeUser && (
+              <Tooltip id="cartTooltip" className="bg-danger mt-3 rounded-3" />
+            )}
           </Link>
-          <Link
-            className="fw-bold me-1"
-            href={`/${activeLang}/signup`}
-            aria-label="Go to signup"
-          >
-            <CgProfile size={25} />
-          </Link>
+          {activeUser ? (
+            <Link
+              className="fw-bold me-1"
+              href={`/${activeLang}/user`}
+              aria-label="Go to signup"
+            >
+              <CgProfile size={25} />
+            </Link>
+          ) : (
+            <Link
+              className="fw-bold me-1"
+              href={`/${activeLang}/signup`}
+              aria-label="Go to signup"
+            >
+              <CgProfile size={25} />
+            </Link>
+          )}
           <LanguageSwitcher />
           <ThemeToggleButton />
         </div>

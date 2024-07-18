@@ -9,7 +9,8 @@
     "CantFind": "Aradığınız ürünü bulamadık.",
     "SearchProduct": "Ürün Ara",
     "CloseBtn": "Kapat",
-    "Result": "İlgili Sonuçlar"
+    "Result": "İlgili Sonuçlar",
+    "TooltipHasNoActiveUser": "Sepetinizi görebilmek için lütfen önce giriş yapın!"
   },
   "Banner": {
     "Title": "Kaydolun ve ilk siparişinizde %20 indirim kazanın.",
