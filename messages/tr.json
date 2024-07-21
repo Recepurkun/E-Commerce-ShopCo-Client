@@ -116,6 +116,7 @@
     "Party": "Parti",
     "Gym": "Spor",
     "ApplyFilter": "Filtreyi Uygula",
+    "ClearFilter": "Filtreyi Temizle",
     "Previous": "Önceki",
     "Next": "Sonraki"
   },
@@ -156,6 +157,10 @@
     "EnterAge": "Yaşınızı Giriniz",
     "SelectGenderLabel": "Cinsiyetinizi Seçiniz",
     "DontHaveAccount": "Hesabınız yok mu?",
-    "AlreadyHaveAccount": "Zaten hesabınız var mı?"
+    "AlreadyHaveAccount": "Zaten hesabınız var mı?",
+    "Welcome": "Hoşgeldiniz",
+    "GoToHome": "Anasayfaya Git",
+    "GoToCart": "Sepete Git",
+    "LogOut": "Çıkış Yap"
   }
 }

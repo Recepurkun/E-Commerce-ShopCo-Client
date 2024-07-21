@@ -37,14 +37,10 @@ const FilterAndSortProducts = ({ products, filters, sortOption }) => {
     let sorted = [...products];
     switch (sortOption) {
       case "Lowest Price":
-        sorted.sort(
-          (a, b) => parseFloat(a.price.slice(1)) - parseFloat(b.price.slice(1))
-        );
+        sorted.sort((a, b) => parseFloat(a.price) - parseFloat(b.price));
         break;
       case "Highest Price":
-        sorted.sort(
-          (a, b) => parseFloat(b.price.slice(1)) - parseFloat(a.price.slice(1))
-        );
+        sorted.sort((a, b) => parseFloat(b.price) - parseFloat(a.price));
         break;
       case "Rating":
         sorted.sort((a, b) => b.rating - a.rating);

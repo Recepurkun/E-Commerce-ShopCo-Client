@@ -1,14 +1,16 @@
 "use client";
 import { FaAngleUp } from "react-icons/fa";
 import "./style.css";
+import { useTranslations } from "next-intl";
 
 const ColorPicker = ({ selectedColors, onFilterChange = "" }) => {
+  const t = useTranslations("CategoryAndFilter");
   const colors = [
     "green",
     "red",
     "yellow",
     "orange",
-    "magenta",
+    "DeepSkyBlue",
     "blue",
     "purple",
     "pink",
@@ -24,7 +26,7 @@ const ColorPicker = ({ selectedColors, onFilterChange = "" }) => {
     <div className="d-flex flex-row flex-wrap">
       <div className="d-flex flex-row justify-content-between align-items-center w-100">
         <h6 htmlFor="colorRange" className="form-label fw-bolder">
-          Colors
+          {t("Colors")}
         </h6>
         <FaAngleUp className="ms-3 opacity-50" />
       </div>

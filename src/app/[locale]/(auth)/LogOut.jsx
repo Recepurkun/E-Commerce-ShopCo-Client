@@ -5,12 +5,15 @@ import { auth } from "@/firebaseConfig";
 import { setUser } from "@/redux/slice/authSlice";
 import { HeroButton } from "@/components/Hero/Styled";
 import toast from "react-hot-toast";
+import { useTranslations } from "next-intl";
 
 const Logout = () => {
   const dispatch = useDispatch();
   const router = useRouter();
   const activeUrl = usePathname();
   const activeLang = activeUrl.split("/")[1];
+
+  const t = useTranslations("SignUp");
 
   const handleLogout = async () => {
     try {
@@ -24,7 +27,7 @@ const Logout = () => {
     }
   };
 
-  return <HeroButton onClick={handleLogout}>Çıkış Yap</HeroButton>;
+  return <HeroButton onClick={handleLogout}>{t("LogOut")}</HeroButton>;
 };
 
 export default Logout;

@@ -116,6 +116,7 @@
     "Party": "Party",
     "Gym": "Gym",
     "ApplyFilter": "Apply Filter",
+    "ClearFilter": "Clear Filter",
     "Previous": "Previous",
     "Next": "Next"
   },
@@ -155,6 +156,10 @@
     "EnterAge": "Enter Your Age",
     "SelectGenderLabel": "Select Gender",
     "DontHaveAccount": "Don't have an account?",
-    "AlreadyHaveAccount": "Already have an account?"
+    "AlreadyHaveAccount": "Already have an account?",
+    "Welcome": "Welcome",
+    "GoToHome": "Go To Homepage",
+    "GoToCart": "Go To Cart",
+    "LogOut": "Log Out"
   }
 }

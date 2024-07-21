@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import { useTranslations } from "next-intl";
 import { CategoryName, ShowingOf } from "./Styled";
@@ -7,7 +7,7 @@ import capitalizeFirstLetter from "@/utils/capitalizeFirstLetter";
 
 const SortProducts = ({ defaultSort, activeCategory }) => {
   const router = useRouter();
-  const [sortOption, setSortOption] = React.useState(defaultSort);
+  const [sortOption, setSortOption] = useState(defaultSort);
   const t = useTranslations("CategoryAndFilter");
 
   const handleSortChange = (event) => {

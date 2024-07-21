@@ -1,8 +1,10 @@
 "use client";
+import { useTranslations } from "next-intl";
 import React from "react";
 import { FaAngleUp } from "react-icons/fa";
 
 const SizePicker = ({ selectedSizes, onFilterChange = "" }) => {
+  const t = useTranslations("CategoryAndFilter");
   const sizes = [
     "xx-small",
     "x-small",
@@ -23,7 +25,7 @@ const SizePicker = ({ selectedSizes, onFilterChange = "" }) => {
     <div className="d-flex flex-row flex-wrap">
       <div className="d-flex flex-row justify-content-between align-items-center w-100">
         <h6 htmlFor="sizePicker" className="mb-3 fw-bolder">
-          Sizes
+          {t("Sizes")}
         </h6>
         <FaAngleUp className="ms-3 opacity-50" />
       </div>

@@ -1,19 +1,28 @@
 import { getTranslations } from "next-intl/server";
 import { getProductsForCategory } from "@/services/api";
-import RangeSliderWithLabel from "@/components/RangeSliderWithLabel";
+import Breadcrumb from "@/components/CustomBreadcrumb/Breadcrumb";
+import FilterWrapper from "@/components/Filter/FilterWrapper";
+import FilterModal from "@/components/Filter/FilterModal";
+import SortProducts from "@/components/Filter/SortProducts";
+import FilterAndSortProducts from "@/components/Filter/FilterAndSortProducts";
 
 import { DetailsDivider } from "@/styles/GlobalStyled";
-
-import FilterWrapper from "./FilterWrapper";
-import FilterAndSortProducts from "./FilterAndSortProducts";
-import SortProducts from "./SortProducts";
-import FilterModalReal from "@/components/FilterModalReal";
-import Breadcrumb from "@/components/CustomBreadcrumb/Breadcrumb";
 
 const CategoryAndFilter = async ({ params, searchParams }) => {
     const activeCategory = params.kategori;
     const products = await getProductsForCategory(activeCategory);
     const t = await getTranslations("CategoryAndFilter");
+
+    const minPrice = parseFloat(searchParams.price_gte) || 0;
+    const maxPrice = parseFloat(searchParams.price_lte) || 1000;
+
+    const filteredProducts = products.filter(product => {
+        const price = product.discount && product.discount.available
+            ? product.discount.discount_price
+            : product.price;
+
+        return price >= minPrice && price <= maxPrice;
+    });
 
     const filters = {
         categories: searchParams.categories ? searchParams.categories.split(",") : [],
@@ -34,14 +43,13 @@ const CategoryAndFilter = async ({ params, searchParams }) => {
                         <div className="border rounded-4 px-3 py-3 my-3">
                             <div className="d-flex justify-content-between align-items-center">
                                 <h5 className="fw-bold">{t("Filters")}</h5>
-                                {/* <FilterModalReal /> */}
+                                <FilterModal filters={filters} />
                             </div>
                             <div className="d-none d-lg-block">
                                 <div className="d-flex list-group list-group-flush">
                                     <DetailsDivider />
                                     <FilterWrapper
                                         filters={filters}
-                                        RangeSliderWithLabel={RangeSliderWithLabel}
                                     />
                                 </div>
                             </div>
@@ -50,13 +58,13 @@ const CategoryAndFilter = async ({ params, searchParams }) => {
                 </div>
                 <div className="col-12 col-lg-10">
                     <SortProducts
-                        products={products}
+                        products={filteredProducts}
                         defaultSort={sortOption}
                         activeCategory={activeCategory}
                     />
                     <DetailsDivider />
                     <FilterAndSortProducts
-                        products={products}
+                        products={filteredProducts}
                         filters={filters}
                         sortOption={sortOption}
                     />

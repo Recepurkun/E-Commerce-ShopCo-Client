@@ -38,14 +38,14 @@ const ProductCard = ({ product }) => {
           <div className="d-flex flex-row align-items-center mt-2">
             {product.discount && product.discount.available ? (
               <div className="d-flex flex-row align-items-center">
-                <Price className="me-2">{discount.discount_price}</Price>
-                <Discount className="me-2">{price}</Discount>
+                <Price className="me-2">${discount.discount_price}</Price>
+                <Discount className="me-2">${price}</Discount>
                 <PerDiscButton>
                   <PerDisc>{discount.percentage}</PerDisc>
                 </PerDiscButton>
               </div>
             ) : (
-              <Price>{price}</Price>
+              <Price>${price}</Price>
             )}
           </div>
         </div>

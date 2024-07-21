@@ -22,7 +22,6 @@ function Login() {
     const activeLang = activeUrl.split('/')[1];
     const dispatch = useDispatch()
 
-    const delay = async (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
     const validate = () => {
         const newErrors = {};
@@ -48,8 +47,8 @@ function Login() {
             const userCredential = await signInWithEmailAndPassword(auth, email, password);
             dispatch(setUser(userCredential.user.email))
             setLoading(false);
-            toast.success("Successfully registered");
             router.push(`/${activeLang}/user`);
+            toast.success("Successfully registered");
         } catch (error) {
             const errorMessage = error.message;
             console.error("Error: ", errorMessage);

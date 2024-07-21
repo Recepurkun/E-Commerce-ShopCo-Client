@@ -26,7 +26,7 @@ const Hero = () => {
             <HeroTitle>{t("title")}</HeroTitle>
             <HeroP>{t("titleDescription")}</HeroP>
             <HeroButton className="mt-4 mt-md-4_5">
-              <Link href={`/${activeLang}/category/casual`} target="_blank">
+              <Link href={`/${activeLang}/category/casual`}>
                 {t("ShopNowBtn")}
               </Link>
             </HeroButton>
