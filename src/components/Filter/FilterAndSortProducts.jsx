@@ -33,14 +33,25 @@ const FilterAndSortProducts = ({ products, filters, sortOption }) => {
     return filtered;
   };
 
+  const getPrice = (product) => {
+    if (
+      product.discount &&
+      product.discount.available &&
+      product.discount.discount_price
+    ) {
+      return parseFloat(product.discount.discount_price);
+    }
+    return parseFloat(product.price);
+  };
+
   const sortProducts = (products, sortOption) => {
     let sorted = [...products];
     switch (sortOption) {
       case "Lowest Price":
-        sorted.sort((a, b) => parseFloat(a.price) - parseFloat(b.price));
+        sorted.sort((a, b) => getPrice(a) - getPrice(b));
         break;
       case "Highest Price":
-        sorted.sort((a, b) => parseFloat(b.price) - parseFloat(a.price));
+        sorted.sort((a, b) => getPrice(b) - getPrice(a));
         break;
       case "Rating":
         sorted.sort((a, b) => b.rating - a.rating);
