@@ -10,7 +10,8 @@
     "SearchProduct": "Ürün Ara",
     "CloseBtn": "Kapat",
     "Result": "İlgili Sonuçlar",
-    "TooltipHasNoActiveUser": "Sepetinizi görebilmek için lütfen önce giriş yapın!"
+    "TooltipHasNoActiveUser": "Sepetinizi görebilmek için lütfen önce giriş yapın!",
+    "TooltipHasActiveUser": "See cart"
   },
   "Banner": {
     "Title": "Kaydolun ve ilk siparişinizde %20 indirim kazanın.",
@@ -68,7 +69,11 @@
   "MainDetails": {
     "Color": "Renk Seçin",
     "Size": "Beden Seçin",
-    "AddToCart": "Sepete Ekleyin"
+    "AddToCart": "Sepete Ekleyin",
+    "SuccessfullyAdded": "Ürün başarıyla sepete eklendi",
+    "PickColor": "Lütfen bir renk seçin",
+    "PickSize": "Lütfen bir beden seçin",
+    "PleaseLogIn": "Lütfen önce hesabınıza giriş yapın"
   },
   "ProductComment": {
     "ProductDetails": "Ürün Detayları",
@@ -76,12 +81,25 @@
     "FAQs": "SSS",
     "AllReviews": "Tüm İncelemeler",
     "Sort": "Sırala",
-    "Latest": "En Son",
-    "Rating": "Derecelendirme",
-    "Date": "Tarih",
+    "Latest": "Yeniden eskiye",
+    "Oldest": "Eskiden yeniye",
+    "RatingHigh": "En iyi derecelendirme",
+    "RatingLow": "En kötü derecelendirme",
     "WriteAReview": "Bir inceleme yaz",
     "Posted": "tarihinde yayinlandi",
     "LoadMore": "Daha fazla yorum yükle"
+  },
+  "FAQS": {
+    "FirstQuestion": "Ürünlerinizin garanti süresi ne kadardır?",
+    "FirstAnswer": "Ürünlerimiz, satın alındıktan sonra 2 yıl garanti kapsamındadır. Garanti süresi ürünün türüne göre değişebilir.",
+    "SecondQuestion": "Siparişimi nasıl takip edebilirim?",
+    "SecondAnswer": "Siparişinizi, size gönderilen takip numarasıyla kargo şirketinin web sitesinden takip edebilirsiniz. Ayrıca, sipariş durumunuzu kullanıcı panelinizden de kontrol edebilirsiniz.",
+    "ThirtyQuestion": "Ürün iade veya değişim işlemi nasıl yapılır?",
+    "ThirtyAnswer": "Ürünlerinizi, teslim aldığınız tarihten itibaren 14 gün içinde iade edebilir veya değiştirebilirsiniz. İade veya değişim işlemleri için müşteri hizmetleriyle iletişime geçmeniz gerekmektedir.",
+    "FourthQuestion": "Kargo ücretleri ne kadar?",
+    "FourthAnswer": "Kargo ücretleri, siparişinizin ağırlığına ve teslimat adresinize göre değişiklik göstermektedir. Detaylı bilgi için kargo ücretleri sayfamızı ziyaret edebilirsiniz.",
+    "FiftyQuestion": "Ödeme yöntemleriniz nelerdir?",
+    "FiftyAnswer": "Ödemelerinizi kredi kartı, banka kartı, kapıda ödeme ve havale/EFT seçenekleri ile yapabilirsiniz. Daha fazla bilgi için ödeme yöntemleri sayfamızı inceleyebilirsiniz."
   },
   "AlsoLike": {
     "Title": "BUNLARI DA BEĞENEBİLİRSİN"
@@ -127,10 +145,17 @@
     "OrderSummary": "Sipariş Özeti",
     "Subtotal": "Ara Toplam",
     "Discount": "İndirim",
-    "DeliveryFee": "Teslimat Ücreti",
+    "DeliveryFee": "Teslimat Ücreti (200$'da kargo ücretsiz)",
     "Total": "Toplam",
     "Apply": "Uygula",
-    "GoToCheckOut": "Ödemeye Git"
+    "GoToCheckOut": "Ödemeye Git",
+    "NotAddedProduct": "Sepete herhangi bir ürün eklemediniz",
+    "AddPromoCode": "Promosyon kodu ekleyin: atmosware",
+    "DiscountApplied": "Indirim uygulandi!",
+    "EnterValidCode": "Geçerli bir kod giriniz!",
+    "ProductRemoved": "Ürün sepetten kaldırıldı",
+    "CartSubmitted": "Satın alma işleminiz başarıyla gerçekleşti",
+    "CartNotSubmitted": "Satın alma sırasında bir hata meydana geldi"
   },
   "SignUp": {
     "Name": "İsim",
@@ -162,5 +187,20 @@
     "GoToHome": "Anasayfaya Git",
     "GoToCart": "Sepete Git",
     "LogOut": "Çıkış Yap"
+  },
+  "ProductDescription": {
+    "Price": "Fiyat",
+    "Category": "Kategori",
+    "Style": "Stil",
+    "Gender": "Cinsiyet",
+    "NumberofSales": "Satış Sayısı",
+    "Stock": "Stok sayısı"
+  },
+  "CommentModal": {
+    "WriteAReview": "Bir değerlendirme yazın",
+    "YourComment": "Yorumun",
+    "Rating": "Değerlendirmen",
+    "Exit": "Çık",
+    "MakeAComment": "Yorumunu yap"
   }
 }

@@ -15,6 +15,7 @@ import Image from "next/image";
 import signUpImg from "../../../../../public/register.jpg"
 import Link from "next/link";
 import { addToUser } from "@/redux/slice/authSlice";
+import { saveUserToDatabase } from "@/services/api";
 
 function SignUpForm() {
 
@@ -49,9 +50,11 @@ function SignUpForm() {
                 user_surname: surname,
                 user_age: age,
                 user_city: city,
-                user_gender: gender
+                user_gender: gender,
+                user_basket: [] // Initialize the basket array
             }
             dispatch(addToUser(gercekUser))
+            await saveUserToDatabase(gercekUser);
             setLoading(false);
 
             toast.success(t('SuccessMessage'), {

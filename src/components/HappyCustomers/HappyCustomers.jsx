@@ -78,14 +78,7 @@ const HappyCustomers = () => {
         </div>
       </div>
       <div className="position-relative overflow-hidden mt-4_8">
-        <div
-          className={`d-flex transition-transform ${
-            isMobileView ? "flex-column" : ""
-          }`}
-          style={{
-            transition: "transform 0.5s",
-          }}
-        >
+        <div className={`d-flex ${isMobileView ? "flex-column" : ""}`}>
           {comments.length > 0 &&
             comments
               .slice(
@@ -95,7 +88,7 @@ const HappyCustomers = () => {
               .map((comment) => (
                 <div
                   key={comment.id}
-                  className={`${isMobileView ? "col-12" : "col-12 col-md-4"}`}
+                  className={`${isMobileView ? "col-12" : "col-12 col-md-4"} `}
                 >
                   <HappyCustomersComment yorum={comment} />
                 </div>

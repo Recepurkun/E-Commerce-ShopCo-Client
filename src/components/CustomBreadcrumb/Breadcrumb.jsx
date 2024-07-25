@@ -1,13 +1,13 @@
-import { getTranslations } from "next-intl/server";
+import { useTranslations } from "next-intl";
 import Link from "next/link";
 
-const Breadcrumb = async ({
+const Breadcrumb = ({
   category,
   gender,
   activeCategory,
-  cartPage = "",
+  isCartPage = false,
 }) => {
-  const t = await getTranslations("Breadcrumb");
+  const t = useTranslations("Breadcrumb");
   return (
     <nav aria-label="breadcrumb" className="mb-md-4_75 mb-3_5 mt-3_5 mt-md-4">
       <ol className="breadcrumb m-0">
@@ -16,7 +16,7 @@ const Breadcrumb = async ({
         </li>
         <li className="breadcrumb-item">
           <Link href="/">
-            {activeCategory ? activeCategory : cartPage ? "Cart" : t("Shop")}
+            {activeCategory ? activeCategory : isCartPage ? "Cart" : t("Shop")}
           </Link>
         </li>
         {gender && (

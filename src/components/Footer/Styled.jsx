@@ -29,7 +29,6 @@ export const ShopCoTitle = styled.h3`
   font-size: 33.45px;
   line-height: 40.15px;
   font-weight: 700;
-  color: #000;
   @media screen and (max-width: 425px) {
     font-size: 28.85px;
     line-height: 34.62px;
@@ -41,7 +40,6 @@ export const ShopCoInformation = styled.h5`
   font-size: 14px;
   font-weight: 400;
   line-height: 22px;
-  color: #000;
   @media screen and (max-width: 425px) {
     line-height: 20px;
     margin-top: 14px;
@@ -65,7 +63,6 @@ export const AllRightsReserved = styled.p`
 `;
 
 export const FooterLinks = styled.div`
-  color: #000;
   margin-bottom: 9px;
   cursor: pointer;
 `;

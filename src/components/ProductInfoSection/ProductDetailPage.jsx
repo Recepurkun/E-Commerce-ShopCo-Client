@@ -1,25 +1,25 @@
+"use client";
 import Image from "next/image";
+import "./style.css";
 import {
   BigImageContainer,
   DetailsBody,
-  DetailsCounter,
   DetailsDiscount,
   DetailsPerDisc,
   DetailsPerDiscButton,
   DetailsPrice,
   DetailsProductName,
-  DetailsSizeButton,
   SmallImageContainer,
 } from "./Styled";
 import { Rating } from "../Rating/Rating";
-import { FaMinus, FaPlus } from "react-icons/fa";
 import { Ranking } from "@/containers/Products/Styled";
-import { useTranslations } from "next-intl";
 import { DetailsDivider } from "@/styles/GlobalStyled";
-import CartButton from "./CartButton";
 import Breadcrumb from "../CustomBreadcrumb/Breadcrumb";
+import ProductOptions from "./ProductOptions";
+import { useState } from "react";
+import ImageModal from "./ImageModal";
 
-const MainDetail = ({ product }) => {
+const ProductDetailPage = ({ product }) => {
   const {
     name,
     rating,
@@ -33,7 +33,11 @@ const MainDetail = ({ product }) => {
     size,
   } = product;
   const altTexts = ["Front View", "Back View", "All Views"];
-  const t = useTranslations("MainDetails");
+
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
   return (
     <div className="container">
@@ -57,14 +61,22 @@ const MainDetail = ({ product }) => {
           <div className="d-flex order-1 order-md-2">
             <BigImageContainer>
               <Image
+                className="productCard"
                 src={img}
                 alt="image_front"
                 fill
                 priority
                 style={{ borderRadius: "20px", objectFit: "cover" }}
                 sizes="(max-width: 425px) 190px, 295px"
+                onClick={handleShow}
               />
             </BigImageContainer>
+            <ImageModal
+              imageSrc={img}
+              handleClose={handleClose}
+              show={show}
+              productName={product.name}
+            />
           </div>
           <div className="d-flex flex-column flex-wrap ms-md-4_8 order-3">
             <DetailsProductName>{name}</DetailsProductName>
@@ -76,53 +88,28 @@ const MainDetail = ({ product }) => {
               {discount && discount.available ? (
                 <div className="d-flex flex-row align-items-center">
                   <DetailsPrice className="me-2">
-                    {discount.discount_price}
+                    ${discount.discount_price}
                   </DetailsPrice>
-                  <DetailsDiscount className="me-2">{price}</DetailsDiscount>
+                  <DetailsDiscount className="me-2">${price}</DetailsDiscount>
                   <DetailsPerDiscButton>
                     <DetailsPerDisc>{discount.percentage}</DetailsPerDisc>
                   </DetailsPerDiscButton>
                 </div>
               ) : (
-                <DetailsPrice>{price}</DetailsPrice>
+                <DetailsPrice>${price}</DetailsPrice>
               )}
             </div>
             <DetailsBody className="mt-3">{definition}</DetailsBody>
             <DetailsDivider />
-            <div>
-              <h6>{t("Color")}</h6>
-              <div className="d-flex flex-row mt-3">
-                {color.map((renk, index) => (
-                  <div
-                    key={index}
-                    className="rounded-pill me-3"
-                    style={{
-                      backgroundColor: renk,
-                      width: 37,
-                      height: 37,
-                    }}
-                  ></div>
-                ))}
-              </div>
-            </div>
+            <ProductOptions
+              colors={color}
+              sizes={size}
+              productName={name}
+              productPrice={price}
+              productImg={img}
+              productDiscount={discount}
+            />
             <DetailsDivider />
-            <div>
-              <h6>{t("Size")}</h6>
-              <div className="d-flex flex-row mt-3">
-                {size.map((beden) => (
-                  <DetailsSizeButton key={beden}>
-                    <p>{beden}</p>
-                  </DetailsSizeButton>
-                ))}
-              </div>
-            </div>
-            <DetailsDivider />
-            <div className="d-flex align-items-center">
-              <DetailsCounter>
-                <FaMinus /> 1 <FaPlus />
-              </DetailsCounter>
-              <CartButton product={product} />
-            </div>
           </div>
         </div>
       </div>
@@ -130,4 +117,4 @@ const MainDetail = ({ product }) => {
   );
 };
 
-export default MainDetail;
+export default ProductDetailPage;

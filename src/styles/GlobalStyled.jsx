@@ -14,7 +14,6 @@ export const GlobalStyle = createGlobalStyle`
 html,
 body {
   height: 100%;
-  transition: all 0.5s ease;
 }
 input,
 button,
@@ -55,7 +54,6 @@ export const Divider = styled.hr`
 `;
 
 export const FooterUp = styled.div`
-  background-color: #f0f0f0;
   margin-top: 170px;
   @media screen and (max-width: 425px) {
     margin-top: 140px;

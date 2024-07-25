@@ -1,11 +1,12 @@
 import AlsoLike from '@/components/AlsoLike/AlsoLike';
-import MainDetail from '@/components/MainDetail/MainDetail';
-import ProductComments from '@/components/ProductComments/ProductComments';
+import ProductComments from '@/components/ProductDetailsSection/ProductComments';
+import ProductDetailPage from '@/components/ProductInfoSection/ProductDetailPage';
+
 
 const ProductDetailsContainer = ({ product }) => {
     return (
         <>
-            <MainDetail product={product} />
+            <ProductDetailPage product={product} />
             <ProductComments product={product} />
             <AlsoLike />
         </>

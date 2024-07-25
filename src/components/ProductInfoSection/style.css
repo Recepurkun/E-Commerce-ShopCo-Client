@@ -1,0 +1,16 @@
+.productCard {
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.productCard:hover {
+  transform: scale(1.02);
+}
+
+.activeLink {
+  border-bottom: 1px solid gray;
+}
+
+.activeLink.active {
+  border-bottom: 2px solid black;
+}

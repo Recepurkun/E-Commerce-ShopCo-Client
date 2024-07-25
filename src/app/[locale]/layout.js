@@ -1,7 +1,7 @@
 import "@/styles/css/main.css";
+import "@smastrom/react-rating/style.css";
 import { Inter } from "next/font/google";
 import BootstrapClient from "@/components/BootstrapClient.js";
-import "@smastrom/react-rating/style.css";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 import { FooterUp, GlobalStyle } from "@/styles/GlobalStyled";

@@ -1,6 +1,6 @@
 "use client";
 import { FaAngleUp } from "react-icons/fa";
-import "./style.css";
+// import "./style.css";
 import { useTranslations } from "next-intl";
 
 const ColorPicker = ({ selectedColors, onFilterChange = "" }) => {

@@ -10,7 +10,8 @@
     "SearchProduct": "Search for products",
     "CloseBtn": "Close",
     "Result": "Related Results",
-    "TooltipHasNoActiveUser": "Please log in first to see your cart!"
+    "TooltipHasNoActiveUser": "Please log in first to see your cart!",
+    "TooltipHasActiveUser": "See cart"
   },
   "Banner": {
     "Title": "Sign up and get 20% off to your first order.",
@@ -68,7 +69,11 @@
   "MainDetails": {
     "Color": "Select Colors",
     "Size": "Choose Size",
-    "AddToCart": "Add to Cart"
+    "AddToCart": "Add to Cart",
+    "SuccessfullyAdded": "The product has been successfully added to the cart",
+    "PickColor": "Please choose a color.",
+    "PickSize": "Please choose a size.",
+    "PleaseLogIn": "Please log in to your account first"
   },
   "ProductComment": {
     "ProductDetails": "Product Details",
@@ -76,12 +81,25 @@
     "FAQs": "FAQs",
     "AllReviews": "All Reviews",
     "Sort": "Sort",
-    "Latest": "Latest",
-    "Rating": "Rating",
-    "Date": "Date",
+    "Latest": "New to old",
+    "Oldest": "From old to new",
+    "RatingHigh": "Best rating",
+    "RatingLow": "Worst rating",
     "WriteAReview": "Write a Review",
     "Posted": "Posted on",
     "LoadMore": "Load More Reviews"
+  },
+  "FAQS": {
+    "FirstQuestion": "What is the warranty period for your products?",
+    "FirstAnswer": "Our products are covered by a 2-year warranty from the date of purchase. The warranty period may vary depending on the type of product.",
+    "SecondQuestion": "How can I track my order?",
+    "SecondAnswer": "You can track your order using the tracking number sent to you on the shipping company's website. You can also check the status of your order from your user panel.",
+    "ThirtyQuestion": "How can I return or exchange a product?",
+    "ThirtyAnswer": "You can return or exchange your products within 14 days from the date of receipt. For return or exchange processes, you need to contact customer service.",
+    "FourthQuestion": "What are the shipping fees?",
+    "FourthAnswer": "Shipping fees vary based on the weight of your order and your delivery address. For detailed information, please visit our shipping fees page.",
+    "FiftyQuestion": "What payment methods do you accept?",
+    "FiftyAnswer": "You can make payments using credit cards, debit cards, cash on delivery, and bank transfers. For more information, please check our payment methods page."
   },
   "AlsoLike": {
     "Title": "YOU MIGHT ALSO LIKE"
@@ -127,10 +145,17 @@
     "OrderSummary": "Order Summary",
     "Subtotal": "Subtotal",
     "Discount": "Discount",
-    "DeliveryFee": "Delivery Fee",
+    "DeliveryFee": "Delivery Fee (Free shipping over $200)",
     "Total": "Total",
     "Apply": "Apply",
-    "GoToCheckOut": "Go To Checkout"
+    "GoToCheckOut": "Go To Checkout",
+    "NotAddedProduct": "You have not added any products to the cart",
+    "AddPromoCode": "Add promo code: atmosware",
+    "DiscountApplied": "Discount applied!",
+    "EnterValidCode": "Enter a valid code!",
+    "ProductRemoved": "Product removed from cart",
+    "CartSubmitted": "Your purchase has been successful",
+    "CartNotSubmitted": "An error occurred during purchase"
   },
   "SignUp": {
     "Name": "Name",
@@ -161,5 +186,20 @@
     "GoToHome": "Go To Homepage",
     "GoToCart": "Go To Cart",
     "LogOut": "Log Out"
+  },
+  "ProductDescription": {
+    "Price": "Price",
+    "Category": "Category",
+    "Style": "Style",
+    "Gender": "Gender",
+    "NumberofSales": "Number of Sales",
+    "Stock": "Stock"
+  },
+  "CommentModal": {
+    "WriteAReview": "Write A Review",
+    "YourComment": "Your Comment",
+    "Rating": "Rating",
+    "Exit": "Exit",
+    "MakeAComment": "Leave your comment"
   }
 }
