@@ -93,7 +93,7 @@ const ProductOptions = ({ colors, sizes, productName, productPrice, productImg, 
                 {colors.map((color, index) => (
                     <div
                         key={index}
-                        className={`rounded-pill me-3 ${selectedColor === color ? "selected" : ""}`}
+                        className="rounded-pill me-3"
                         style={{
                             backgroundColor: color,
                             width: "37px",

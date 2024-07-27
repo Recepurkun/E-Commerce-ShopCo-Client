@@ -1,6 +1,5 @@
 "use client";
-import { FaAngleUp } from "react-icons/fa";
-// import "./style.css";
+import { FaAngleUp, FaCheck } from "react-icons/fa";
 import { useTranslations } from "next-intl";
 
 const ColorPicker = ({ selectedColors, onFilterChange = "" }) => {
@@ -31,21 +30,24 @@ const ColorPicker = ({ selectedColors, onFilterChange = "" }) => {
         <FaAngleUp className="ms-3 opacity-50" />
       </div>
       {colors.map((color) => (
-        <li
+        <div
           key={color}
-          className={`list-group-item rounded-pill my-2 ${
-            selectedColors.includes(color) ? "selected" : ""
-          }`}
+          className="list-group-item rounded-pill my-2 d-flex align-items-center justify-content-center"
           onClick={() => handleItemClick(color)}
           style={{
             width: 35,
             height: 35,
-            backgroundColor: `${color}`,
-            border: `1px solid black`,
+            backgroundColor: color,
+            border: "1px solid black",
             cursor: "pointer",
             marginRight: 1,
+            position: "relative",
           }}
-        ></li>
+        >
+          {selectedColors.includes(color) && (
+            <FaCheck color="#fff" style={{ position: "absolute" }} />
+          )}
+        </div>
       ))}
     </div>
   );
