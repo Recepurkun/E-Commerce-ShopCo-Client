@@ -6,6 +6,7 @@ import { setUser } from "@/redux/slice/authSlice";
 import { HeroButton } from "@/components/Hero/Styled";
 import toast from "react-hot-toast";
 import { useTranslations } from "next-intl";
+import { CiLogout } from "react-icons/ci";
 
 const Logout = () => {
   const dispatch = useDispatch();
@@ -27,7 +28,11 @@ const Logout = () => {
     }
   };
 
-  return <HeroButton onClick={handleLogout}>{t("LogOut")}</HeroButton>;
+  return (
+    <CiLogout onClick={handleLogout} size={24} style={{ cursor: "pointer" }}>
+      {t("LogOut")}
+    </CiLogout>
+  );
 };
 
 export default Logout;

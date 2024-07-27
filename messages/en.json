@@ -183,8 +183,8 @@
     "DontHaveAccount": "Don't have an account?",
     "AlreadyHaveAccount": "Already have an account?",
     "Welcome": "Welcome",
-    "GoToHome": "Go To Homepage",
-    "GoToCart": "Go To Cart",
+    "GoToHome": "Homepage",
+    "GoToCart": "Cart",
     "LogOut": "Log Out"
   },
   "ProductDescription": {
@@ -201,5 +201,15 @@
     "Rating": "Rating",
     "Exit": "Exit",
     "MakeAComment": "Leave your comment"
+  },
+  "UserOrders": {
+    "PastOrders": "Your Past Orders",
+    "OrderCompleted": "Order completed",
+    "Price": "Price",
+    "DiscountPrice": "Discount Price",
+    "Color": "Color",
+    "Size": "Size",
+    "Total": "Piece",
+    "NoShopped": "You've never shopped before"
   }
 }

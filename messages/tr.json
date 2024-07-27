@@ -184,8 +184,8 @@
     "DontHaveAccount": "Hesabınız yok mu?",
     "AlreadyHaveAccount": "Zaten hesabınız var mı?",
     "Welcome": "Hoşgeldiniz",
-    "GoToHome": "Anasayfaya Git",
-    "GoToCart": "Sepete Git",
+    "GoToHome": "Anasayfa",
+    "GoToCart": "Sepet",
     "LogOut": "Çıkış Yap"
   },
   "ProductDescription": {
@@ -202,5 +202,15 @@
     "Rating": "Değerlendirmen",
     "Exit": "Çık",
     "MakeAComment": "Yorumunu yap"
+  },
+  "UserOrders": {
+    "PastOrders": "Geçmiş Siparişleriniz",
+    "OrderCompleted": "Sipariş tamamlandı",
+    "Price": "Fiyat",
+    "DiscountPrice": "İndirimli Fiyat",
+    "Color": "Renk",
+    "Size": "Beden",
+    "Total": "Adet",
+    "NoShopped": "Daha önce hiç alışveriş yapmadınız"
   }
 }
