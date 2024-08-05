@@ -3,11 +3,13 @@ import { FaHome } from "react-icons/fa";
 import { FaRegCalendarDays } from "react-icons/fa6";
 import { AiOutlineDashboard, AiFillProduct } from "react-icons/ai";
 import { IoPersonCircleSharp } from "react-icons/io5";
+import { MdCategory } from "react-icons/md";
 import { Tooltip } from "react-tooltip";
 import { useState } from "react";
 import MainChart from "@/components/DashboardCharts/MainChart";
 import ProductChart from "@/components/DashboardCharts/ProductChart";
-import UsersChart from "@/components/DashboardCharts/UsersChart";
+import OrdersChart from "@/components/DashboardCharts/OrdersChart";
+import CategoryChart from "@/components/DashboardCharts/CategoryChart";
 
 const DashboardPage = () => {
     const [activeLink, setActiveLink] = useState(null);
@@ -16,12 +18,14 @@ const DashboardPage = () => {
     };
     const renderContent = () => {
         switch (activeLink) {
-            case 'home':
+            case 'dashboard':
                 return <MainChart />;
             case 'products':
                 return <ProductChart />;
-            case 'customers':
-                return <UsersChart />;
+            case 'categories':
+                return <CategoryChart />;
+            case 'orders':
+                return <OrdersChart />
             default:
                 return <h3>sağ taraf</h3>;
         }
@@ -39,61 +43,45 @@ const DashboardPage = () => {
                     <Tooltip id="my-tooltip" />
                 </a>
                 <ul className="nav nav-pills nav-flush flex-column mb-auto text-center w-100">
-                    <li className="nav-item">
-                        <a href="#"
-                            className={`nav-link py-3 border-bottom rounded-0 ${activeLink === 'home' ? 'active' : ''}`}
-                            data-tooltip-id="home-tooltip"
-                            data-tooltip-content="Home"
-                            data-tooltip-place="right"
-                            onClick={() => handleLinkClick('home')}>
-                            <FaHome size={24} aria-label="Home" role="img" />
-                            <Tooltip id="home-tooltip"
-                            />
-                        </a>
+                    <li
+                        className={`nav-link py-3 border-bottom rounded-0  ${activeLink === 'dashboard' ? 'active' : ''}`}
+                        style={{ cursor: "pointer" }}
+                        data-tooltip-id="dashboard-tooltip"
+                        data-tooltip-content="Dashboard"
+                        data-tooltip-place="right"
+                        onClick={() => handleLinkClick('dashboard')}>
+                        <AiOutlineDashboard size={24} aria-label="Dashboard" role="img" />
+                        <Tooltip id="dashboard-tooltip" />
                     </li>
-                    <li className="nav-item" >
-                        <a href="#"
-                            className={`nav-link py-3 border-bottom rounded-0 ${activeLink === 'dashboard' ? 'active' : ''}`}
-                            data-tooltip-id="dashboard-tooltip"
-                            data-tooltip-content="Dashboard"
-                            data-tooltip-place="right"
-                            onClick={() => handleLinkClick('dashboard')}>
-                            <AiOutlineDashboard size={24} aria-label="Dashboard" role="img" />
-                            <Tooltip id="dashboard-tooltip" />
-                        </a>
+                    <li
+                        className={`nav-link py-3 border-bottom rounded-0  ${activeLink === 'orders' ? 'active' : ''}`}
+                        style={{ cursor: "pointer" }}
+                        data-tooltip-id="orders-tooltip"
+                        data-tooltip-content="Orders"
+                        data-tooltip-place="right"
+                        onClick={() => handleLinkClick('orders')}> <FaRegCalendarDays size={24} aria-label="Orders" role="img" />
+                        <Tooltip id="orders-tooltip" />
                     </li>
-                    <li>
-                        <a href="#"
-                            className={`nav-link py-3 border-bottom rounded-0 ${activeLink === 'orders' ? 'active' : ''}`}
-                            data-tooltip-id="orders-tooltip"
-                            data-tooltip-content="Orders"
-                            data-tooltip-place="right"
-                            onClick={() => handleLinkClick('orders')}>
-                            <FaRegCalendarDays size={24} aria-label="Orders" role="img" />
-                            <Tooltip id="orders-tooltip" />
-                        </a>
+                    <li
+                        className={`nav-link py-3 border-bottom rounded-0  ${activeLink === 'products' ? 'active' : ''}`}
+                        style={{ cursor: "pointer" }}
+                        data-tooltip-id="products-tooltip"
+                        data-tooltip-content="Products"
+                        data-tooltip-place="right"
+                        onClick={() => handleLinkClick('products')}>
+                        <AiFillProduct size={24} aria-label="Products" role="img" />
+                        <Tooltip id="products-tooltip" />
                     </li>
-                    <li>
-                        <a href="#"
-                            className={`nav-link py-3 border-bottom rounded-0 ${activeLink === 'products' ? 'active' : ''}`}
-                            data-tooltip-id="products-tooltip"
-                            data-tooltip-content="Products"
-                            data-tooltip-place="right"
-                            onClick={() => handleLinkClick('products')}>
-                            <AiFillProduct size={24} aria-label="Products" role="img" />
-                            <Tooltip id="products-tooltip" />
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#"
-                            className={`nav-link py-3 border-bottom rounded-0 ${activeLink === 'customers' ? 'active' : ''}`}
-                            data-tooltip-id="customers-tooltip"
-                            data-tooltip-content="Customers"
-                            data-tooltip-place="right"
-                            onClick={() => handleLinkClick('customers')}>
-                            <IoPersonCircleSharp size={24} aria-label="Customers" role="img" />
-                            <Tooltip id="customers-tooltip" />
-                        </a>
+                    <li
+                        className={`nav-link py-3 border-bottom rounded-0  ${activeLink === 'categories' ? 'active' : ''}`}
+                        style={{ cursor: "pointer" }}
+                        data-tooltip-id="categories-tooltip"
+                        data-tooltip-content="Categories"
+                        data-tooltip-place="right"
+                        onClick={() => handleLinkClick('categories')}
+                    >
+                        <MdCategory size={24} aria-label="Categories" role="img" />
+                        <Tooltip id="categories-tooltip" />
                     </li>
                 </ul>
                 <div className="dropdown border-top">
@@ -109,7 +97,7 @@ const DashboardPage = () => {
                     </ul>
                 </div>
             </div>
-            <div className="d-flex col-12 col-lg-11 border p-0 m-0">
+            <div className="d-flex col-12 col-lg-11 p-0 m-0">
                 {renderContent()}
             </div>
         </div>

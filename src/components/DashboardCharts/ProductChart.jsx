@@ -23,38 +23,49 @@ const ProductChart = () => {
   }, []);
 
   const salesData = products.map((product) => ({
-    // name: product.name.slice(0, 5),
-    name: product.name,
+    name: product.name.slice(0, 7),
     sales: Number(product.numberOfSales),
-    // price: Number(product.price),
+    price: Number(product.price),
   }));
 
   return (
-    <div className="d-flex flex-column w-100">
-      <h3>Product Chart</h3>
-      <div className="d-flex flex-columns align-items-center justify-content-center p-4 border rounded-4 h-100">
+    <div className="d-flex flex-column w-100 p-3">
+      <div className="mb-3">
+        <h3 className="fw-bolder">Product Chart</h3>
+        <span className="fw-light">
+          This chart provides detailed insights into the sales of each product
+          in <b>ShopCO</b>. It displays the quantity sold, the price per unit,
+          and the name of each product, allowing for a comprehensive analysis of
+          product performance.
+        </span>
+      </div>
+      <div className="d-flex flex-columns align-items-center justify-content-center p-3 border rounded-4 h-100">
         <ResponsiveContainer width="100%" height="100%">
-          <BarChart data={salesData} margin={{ right: 30 }}>
+          <BarChart
+            data={salesData}
+            width={400}
+            height={300}
+            margin={{ right: 30, top: 30 }}
+          >
             <YAxis />
             <XAxis dataKey="name" />
             <CartesianGrid strokeDasharray="5 5" />
 
             <Tooltip
               content={<CustomTooltip />}
-              //   cursor={{ fill: "#fff", fillOpacity: 0.075 }} //baya ideal duruyor
-              cursor={{ fill: "red", fillOpacity: 0.075 }} //arkada olusan gri bg'yi degistirebilmek icin
+              cursor={{ fill: "#ccc", fillOpacity: 0.3 }}
             />
 
             <Bar
               dataKey="sales"
-              fill="#3b82f6"
-              activeBar={<Rectangle fill="#0561f5" stroke="#fff" />}
+              fill="#3bcdf6"
+              activeBar={<Rectangle stroke="#212121" />}
             />
-            {/* <Bar
+            <Bar
               dataKey="price"
-              fill="#8b5cf6"
-              activeBar={<Rectangle fill="#6222f7" stroke="#fff" />}
-            /> */}
+              fill="#7c107e"
+              activeBar={<Rectangle stroke="#212121" />}
+            />
             <Legend />
           </BarChart>
         </ResponsiveContainer>
@@ -68,13 +79,14 @@ const CustomTooltip = ({ active, payload, label }) => {
     return (
       <div className="p-4 bg-body-tertiary border flex flex-col gap-4 rounded-3">
         <p className="text-primary fw-semibold w-100"> {label}</p>
-        <p className="">
+        <p>
           Number of products sold:
           <span className="ms-2 fw-bolder">{payload[0].value}</span>
         </p>
-        {/* <p className="">
-          Profit : <span className="ml-2 fw-bolder">${payload[1].value}</span>
-        </p> */}
+        <p>
+          Product Price:
+          <span className="ms-2 fw-bolder">${payload[1].value}</span>
+        </p>
       </div>
     );
   }

@@ -51,7 +51,7 @@ function SignUpForm() {
                 user_age: age,
                 user_city: city,
                 user_gender: gender,
-                user_basket: [] // Initialize the basket array
+                user_basket: []
             }
             dispatch(addToUser(gercekUser))
             await saveUserToDatabase(gercekUser);

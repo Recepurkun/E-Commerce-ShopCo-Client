@@ -97,3 +97,9 @@ export const updateUserBasket = async (email, newBasketItems) => {
 
     return response.json();
 };
+
+export const getUsersInfo = async () => {
+    const response = await fetch(`${apiUrl}/users`)
+    const data = await response.json();
+    return data;
+}
