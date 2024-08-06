@@ -1,30 +1,17 @@
 "use client";
-import { getProducts } from "@/services/api";
 import capitalizeFirstLetter from "@/utils/capitalizeFirstLetter";
-import { useCallback, useEffect, useState } from "react";
-import toast from "react-hot-toast";
-import { PieChart, Pie, Sector } from "recharts";
+import { useEffect, useState } from "react";
+import { PieChart, Pie, Sector, Legend } from "recharts";
+import ChartContainer from "./ChartContainer";
+import { useTranslations } from "next-intl";
 
-const CategoryChart = () => {
-  const [products, setProducts] = useState([]);
+const CategoryChart = ({ products }) => {
   const [categoryDistribution, setCategoryDistribution] = useState([]);
   const [categoryRating, setCategoryRating] = useState([]);
   const [activeIndexDistribution, setActiveIndexDistribution] = useState(0);
   const [activeIndexRating, setActiveIndexRating] = useState(0);
 
-  const fetchProducts = useCallback(async () => {
-    try {
-      const data = await getProducts();
-      setProducts(data);
-    } catch (error) {
-      console.error("Error fetching products:", error);
-      toast.error(`Error fetching products: ${error.message}`);
-    }
-  }, []);
-
-  useEffect(() => {
-    fetchProducts();
-  }, [fetchProducts]);
+  const t = useTranslations("Dashboard");
 
   useEffect(() => {
     if (products.length > 0) {
@@ -76,35 +63,30 @@ const CategoryChart = () => {
   return (
     <div className="d-flex flex-column w-100 p-3">
       <div className="mb-3">
-        <h3 className="fw-bolder">Product Categories Chart</h3>
-        <span className="fw-light">
-          Bu grafikler, <b>ShopCO</b>’da her kategoride kaç adet ürün
-          bulunduğunu ve her kategorinin kullanıcılar tarafından aldığı ortalama
-          puanı gösterir. Kategori bazında ürün dağılımını ve müşteri
-          memnuniyetini analiz ederek stratejik kararlar almanıza yardımcı olur.
-        </span>
+        <h3 className="fw-bolder">{t("ProductCategoriesChart")}</h3>
+        <span className="fw-light">{t("ProductCategoriesChartInfo")}</span>
       </div>
+
       <div className="d-flex flex-column flex-lg-row justify-content-around p-3 border rounded-4">
-        <div className="d-flex flex-column p-3 text-center">
-          <h4>Category Distribution</h4>
-          <PieChart width={550} height={270}>
+        <ChartContainer title={t("Distribution")} isCategory={true}>
+          <PieChart width={550} height={320}>
             <Pie
               activeIndex={activeIndexDistribution}
               activeShape={renderActiveShape}
               data={categoryDistribution}
               cx="50%"
               cy="50%"
-              innerRadius={60}
-              outerRadius={80}
+              innerRadius={70}
+              outerRadius={90}
               fill="#3b82f6"
               dataKey="value"
               onMouseEnter={onPieEnterDistribution}
             />
+            <Legend />
           </PieChart>
-        </div>
-        <div className="d-flex flex-column p-3 text-center">
-          <h4>Category Average Rating</h4>
-          <PieChart width={550} height={270}>
+        </ChartContainer>
+        <ChartContainer title={t("AverageRating")} isCategory={true}>
+          <PieChart width={550} height={320}>
             <Pie
               activeIndex={activeIndexRating}
               activeShape={renderActiveShape}
@@ -117,8 +99,9 @@ const CategoryChart = () => {
               dataKey="value"
               onMouseEnter={onPieEnterRating}
             />
+            <Legend />
           </PieChart>
-        </div>
+        </ChartContainer>
       </div>
     </div>
   );
@@ -137,7 +120,6 @@ const renderActiveShape = (props) => {
     fill,
     payload,
     percent,
-    data,
   } = props;
   const sin = Math.sin(-RADIAN * midAngle);
   const cos = Math.cos(-RADIAN * midAngle);
@@ -153,15 +135,13 @@ const renderActiveShape = (props) => {
     shorts: "🩳",
     shirt: "👕",
     hoodie: "🧥",
-    "t-shirt": "👕", // Aynı emoji kullanabilirsiniz veya farklı bir emoji ekleyebilirsiniz
+    "t-shirt": "👔",
     jeans: "👖",
   };
 
   const isDistribution = payload.type == "rating";
   const category = payload.name.toLowerCase();
   const emoji = categoryEmojiMap[category] || "❓";
-
-  console.log(payload.name);
 
   return (
     <g>

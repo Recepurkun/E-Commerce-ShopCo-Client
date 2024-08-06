@@ -211,5 +211,27 @@
     "Size": "Size",
     "Total": "Piece",
     "NoShopped": "You've never shopped before"
+  },
+  "Dashboard": {
+    "ProductCategoriesChart": "Product Categories Chart",
+    "ProductCategoriesChartInfo": "These charts show the number of products in each category and the average rating each category receives from users on ShopCO. By analyzing product distribution and customer satisfaction by category, you can make strategic decisions.",
+    "AverageRating": "Category Average Rating",
+    "Distribution": "Category Distribution",
+    "NumberOfComment": "Number of comments made by users",
+    "AgeRangeUsers": "Age range distribution of users",
+    "NOCByUser": "Number of comments made by the user",
+    "UsersChart": "Users Chart",
+    "AgeRange": "Age range",
+    "NumberOfUsers": "Number of members in this age range:",
+    "OrderDate": "Order date",
+    "OrderQuantity": "Order quantity",
+    "NumberOfProductsOrdered": "Total number of products ordered",
+    "NumberOfProductSold": "Number of products sold",
+    "ProductPrice": "Product price",
+    "UsersChartInfo": "These charts show the number of comments each user has made and the number of registered users in each age range on ShopCO. By analyzing user comments and user distribution by age range, you can better understand user engagement and demographic information.",
+    "OrdersChart": "Orders Chart",
+    "OrdersChartInfo": "This chart shows the total number of orders and the total quantity of products in those orders for each day on ShopCO. By analyzing order trends and product distribution, you can better understand sales performance.",
+    "ProductsChart": "Products Chart",
+    "ProductsChartInfo": "This chart provides detailed information on the sales of each product on ShopCO. It displays the quantity sold, price per unit, and the name of each product, allowing for a comprehensive analysis of product performance."
   }
 }

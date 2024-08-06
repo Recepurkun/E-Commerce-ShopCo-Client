@@ -212,5 +212,27 @@
     "Size": "Beden",
     "Total": "Adet",
     "NoShopped": "Daha önce hiç alışveriş yapmadınız"
+  },
+  "Dashboard": {
+    "ProductCategoriesChart": "Ürün Kategorileri Tablosu",
+    "ProductCategoriesChartInfo": "Bu grafikler,ShopCO’da her kategoride kaç adet ürün bulunduğunu ve her kategorinin kullanıcılar tarafından aldığı ortalama puanı gösterir. Kategori bazında ürün dağılımını ve müşteri memnuniyetini analiz ederek stratejik kararlar almanıza yardımcı olur.",
+    "AverageRating": "Kategori Ortalama Puan",
+    "Distribution": "Kategori Dağılımı",
+    "NumberOfComment": "Kullanıcıların yaptığı yorum sayısı",
+    "AgeRangeUsers": "Kullanıcıların yaş aralığı dağılımı",
+    "NOCByUser": "Kullanıcı tarafından yapılan yorum sayısı",
+    "AgeRange": "Yaş aralığı",
+    "NumberOfUsers": "Bu yaş aralığındaki üye sayısı:",
+    "OrderDate": "Sipariş tarihi",
+    "OrderQuantity": "Sipariş miktarı",
+    "NumberOfProductsOrdered": "Sipariş edilen toplam ürün sayısı",
+    "NumberOfProductSold": "Satılan ürün sayısı",
+    "ProductPrice": "Ürün fiyatı",
+    "UsersChart": "Kullanıcılar Tablosu",
+    "UsersChartInfo": "Bu grafikler ShopCO'da hangi kullanıcının kaç tane yorumu olduğunu ve hangi yaş aralığında kaç tane kayıtlı kullanıcı olduğunu gösterir. Kullanıcı yorumlarını, yaş aralığına göre ise kullanıcı dağılımını analiz ederek kullanıcı etkileşimini ve demografik bilgileri daha iyi anlamanıza yardımcı olur.",
+    "OrdersChart": "Siparişler Tablosu",
+    "OrdersChartInfo": "Bu grafik, ShopCO’daki her gün için toplam sipariş sayısını ve siparişlerdeki toplam ürün miktarını gösterir. Sipariş trendlerini ve ürün dağılımını analiz ederek satış performansını daha iyi anlamanıza yardımcı olur.",
+    "ProductsChart": "Ürünler Tablosu",
+    "ProductsChartInfo": "Bu grafik, ShopCO'daki her ürünün satışlarına ilişkin ayrıntılı bilgiler sağlar. Satılan miktarı, birim başına fiyatı ve her ürünün adını görüntüler ve ürün performansının kapsamlı bir analizine olanak tanır."
   }
 }

@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "scss": "sass -w ./src/styles/scss:./src/styles/css",
-    "json-server": "json-server --watch ../server/db.json --port 5500",
+    "json-server": "json-server --watch ../../server/db.json --port 5500",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
