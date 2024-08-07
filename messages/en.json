@@ -232,6 +232,19 @@
     "OrdersChart": "Orders Chart",
     "OrdersChartInfo": "This chart shows the total number of orders and the total quantity of products in those orders for each day on ShopCO. By analyzing order trends and product distribution, you can better understand sales performance.",
     "ProductsChart": "Products Chart",
-    "ProductsChartInfo": "This chart provides detailed information on the sales of each product on ShopCO. It displays the quantity sold, price per unit, and the name of each product, allowing for a comprehensive analysis of product performance."
+    "ProductsChartInfo": "This chart provides detailed information on the sales of each product on ShopCO. It displays the quantity sold, price per unit, and the name of each product, allowing for a comprehensive analysis of product performance.",
+    "DashboardTitle": "Dashboard",
+    "DashboardInfo": "This chart visualizes the total value of products on the ShopCO, user spending, the number of products in each category, product distribution by color, and the count of products by size using pie charts. These visuals provide a comprehensive analysis of site performance and stock levels, helping you make informed decisions.",
+    "PriceAllProducts": "Price All Products",
+    "TotalUserSpending": "Total User Spending",
+    "ProductCountbyCategory": "Product Count by Category",
+    "ProductDistributionbyColor": "Product Distribution by Color",
+    "ProductCountbySize": "Product Count by Size",
+    "User": "User",
+    "TotalAmountSpend": "T. Amount Spend",
+    "Category": "Category",
+    "Amount": "Amount",
+    "Color": "Color",
+    "Size": "Size"
   }
 }

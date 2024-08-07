@@ -1,5 +1,5 @@
-const apiUrl = "http://localhost:5500";
-// const apiUrl = "https://e-commerce-shop-co-server.vercel.app/";
+// const apiUrl = "http://localhost:5500";
+const apiUrl = "https://e-commerce-shop-co-server.vercel.app/";
 //* CORS HATASI VEREBİLİYOR. 
 
 const fetchData = async (url, options) => {
@@ -99,7 +99,7 @@ export const updateUserBasket = async (email, newBasketItems) => {
 };
 
 export const getUsersInfo = async () => {
-    const response = await fetch(`${apiUrl}/users`)
+    const response = await fetch(`${apiUrl}/users`, { cache: "no-store" })
     const data = await response.json();
     return data;
 }

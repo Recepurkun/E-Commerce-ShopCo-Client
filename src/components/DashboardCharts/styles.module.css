@@ -1,0 +1,8 @@
+.cardEffect {
+  cursor: pointer;
+  transition: transform 0.5s ease-in-out;
+}
+
+.cardEffect:hover {
+  transform: scale(1.01);
+}

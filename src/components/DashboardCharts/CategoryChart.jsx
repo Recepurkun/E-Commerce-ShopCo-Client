@@ -1,15 +1,19 @@
 "use client";
 import capitalizeFirstLetter from "@/utils/capitalizeFirstLetter";
 import { useEffect, useState } from "react";
-import { PieChart, Pie, Sector, Legend } from "recharts";
+import { PieChart, Pie, Sector, Legend, ResponsiveContainer } from "recharts";
 import ChartContainer from "./ChartContainer";
 import { useTranslations } from "next-intl";
+import useWindowWidth from "@/hooks/useWindowWidth";
 
 const CategoryChart = ({ products }) => {
   const [categoryDistribution, setCategoryDistribution] = useState([]);
   const [categoryRating, setCategoryRating] = useState([]);
   const [activeIndexDistribution, setActiveIndexDistribution] = useState(0);
   const [activeIndexRating, setActiveIndexRating] = useState(0);
+
+  const windowWidth = useWindowWidth();
+  const isMobile = windowWidth <= 625;
 
   const t = useTranslations("Dashboard");
 
@@ -67,40 +71,50 @@ const CategoryChart = ({ products }) => {
         <span className="fw-light">{t("ProductCategoriesChartInfo")}</span>
       </div>
 
-      <div className="d-flex flex-column flex-lg-row justify-content-around p-3 border rounded-4">
+      <div className="d-flex flex-column flex-lg-row justify-content-center p-3 border rounded-4">
         <ChartContainer title={t("Distribution")} isCategory={true}>
-          <PieChart width={550} height={320}>
-            <Pie
-              activeIndex={activeIndexDistribution}
-              activeShape={renderActiveShape}
-              data={categoryDistribution}
-              cx="50%"
-              cy="50%"
-              innerRadius={70}
-              outerRadius={90}
-              fill="#3b82f6"
-              dataKey="value"
-              onMouseEnter={onPieEnterDistribution}
-            />
-            <Legend />
-          </PieChart>
+          <ResponsiveContainer
+            width={isMobile ? "100%" : 560}
+            height={isMobile ? "100%" : 320}
+          >
+            <PieChart>
+              <Pie
+                activeIndex={activeIndexDistribution}
+                activeShape={renderActiveShape}
+                data={categoryDistribution}
+                cx="50%"
+                cy="50%"
+                innerRadius={70}
+                outerRadius={90}
+                fill="#3b82f6"
+                dataKey="value"
+                onMouseEnter={onPieEnterDistribution}
+              />
+              <Legend />
+            </PieChart>
+          </ResponsiveContainer>
         </ChartContainer>
-        <ChartContainer title={t("AverageRating")} isCategory={true}>
-          <PieChart width={550} height={320}>
-            <Pie
-              activeIndex={activeIndexRating}
-              activeShape={renderActiveShape}
-              data={categoryRating}
-              cx="50%"
-              cy="50%"
-              innerRadius={70}
-              outerRadius={90}
-              fill="#7c107e"
-              dataKey="value"
-              onMouseEnter={onPieEnterRating}
-            />
-            <Legend />
-          </PieChart>
+        <ChartContainer title={t("Distribution")} isCategory={true}>
+          <ResponsiveContainer
+            width={isMobile ? "100%" : 560}
+            height={isMobile ? "100%" : 320}
+          >
+            <PieChart>
+              <Pie
+                activeIndex={activeIndexRating}
+                activeShape={renderActiveShape}
+                data={categoryRating}
+                cx="50%"
+                cy="50%"
+                innerRadius={70}
+                outerRadius={90}
+                fill="#7c107e"
+                dataKey="value"
+                onMouseEnter={onPieEnterRating}
+              />
+              <Legend />
+            </PieChart>
+          </ResponsiveContainer>
         </ChartContainer>
       </div>
     </div>

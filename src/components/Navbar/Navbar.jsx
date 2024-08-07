@@ -117,91 +117,62 @@ const Navbar = () => {
           <form className="d-flex w-100 justify-content-end" role="search">
             <Search />
           </form>
-        </div>
-        <div className="d-flex align-items-center gap-2">
-          {/* <Link
-            className="fw-bold me-1 position-relative"
-            href={`/${activeLang}/cart`}
-            aria-label="Go to cart"
-            // data-tooltip-content={
-            //   !activeUser
-            //     ? t("TooltipHasNoActiveUser")
-            //     : t("TooltipHasActiveUser")
-            // }
-            data-tooltip-content="Login First"
-            data-tooltip-id="cartTooltip"
-            data-tooltip-place="bottom"
-            onClick={(e) => {
-              if (!activeUser) {
-                e.preventDefault();
-              }
-            }}
-          >
-            <SlBasket size={25} />
-            {totalItemsInCart > 0 ? (
-              <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                {totalItemsInCart}
-                <span className="visually-hidden">unread messages</span>
-              </span>
-            ) : (
-              ""
-            )}
-            {!activeUser && (
-              <Tooltip id="cartTooltip" className="bg-danger mt-3 rounded-3" />
-            )}
-          </Link> */}
-          {isClient && (
-            <Link
-              className="fw-bold me-1 position-relative"
-              href={`/${activeLang}/cart`}
-              aria-label="Go to cart"
-              data-tooltip-content={
-                !activeUser
-                  ? t("TooltipHasNoActiveUser")
-                  : t("TooltipHasActiveUser")
-              }
-              data-tooltip-id="cartTooltip"
-              data-tooltip-place="bottom"
-              onClick={(e) => {
-                if (!activeUser) {
-                  e.preventDefault();
+          <div className="d-flex align-items-center gap-2 mt-2 mt-md-0">
+            {isClient && (
+              <Link
+                className="fw-bold me-1 position-relative"
+                href={`/${activeLang}/cart`}
+                aria-label="Go to cart"
+                data-tooltip-content={
+                  !activeUser
+                    ? t("TooltipHasNoActiveUser")
+                    : t("TooltipHasActiveUser")
                 }
-              }}
-            >
-              <SlBasket size={25} />
-              {totalItemsInCart > 0 && (
-                <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                  {totalItemsInCart}
-                  <span className="visually-hidden">products in the cart</span>
-                </span>
-              )}
-              {!activeUser && (
-                <Tooltip
-                  id="cartTooltip"
-                  className="bg-danger mt-3 rounded-3"
-                />
-              )}
-            </Link>
-          )}
-          {activeUser ? (
-            <Link
-              className="fw-bold me-1"
-              href={`/${activeLang}/user`}
-              aria-label="Go to user"
-            >
-              <CgProfile size={25} />
-            </Link>
-          ) : (
-            <Link
-              className="fw-bold me-1"
-              href={`/${activeLang}/signup`}
-              aria-label="Go to signup"
-            >
-              <CgProfile size={25} />
-            </Link>
-          )}
-          <LanguageSwitcher />
-          <ThemeToggleButton />
+                data-tooltip-id="cartTooltip"
+                data-tooltip-place="bottom"
+                onClick={(e) => {
+                  if (!activeUser) {
+                    e.preventDefault();
+                  }
+                }}
+              >
+                <SlBasket size={25} />
+                {totalItemsInCart > 0 && (
+                  <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                    {totalItemsInCart}
+                    <span className="visually-hidden">
+                      products in the cart
+                    </span>
+                  </span>
+                )}
+                {!activeUser && (
+                  <Tooltip
+                    id="cartTooltip"
+                    className="bg-danger mt-3 rounded-3"
+                  />
+                )}
+              </Link>
+            )}
+            {activeUser ? (
+              <Link
+                className="fw-bold me-1"
+                href={`/${activeLang}/user`}
+                aria-label="Go to user"
+              >
+                <CgProfile size={25} />
+              </Link>
+            ) : (
+              <Link
+                className="fw-bold me-1"
+                href={`/${activeLang}/signup`}
+                aria-label="Go to signup"
+              >
+                <CgProfile size={25} />
+              </Link>
+            )}
+            <LanguageSwitcher />
+            <ThemeToggleButton />
+          </div>
         </div>
       </div>
     </nav>

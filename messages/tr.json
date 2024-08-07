@@ -233,6 +233,19 @@
     "OrdersChart": "Siparişler Tablosu",
     "OrdersChartInfo": "Bu grafik, ShopCO’daki her gün için toplam sipariş sayısını ve siparişlerdeki toplam ürün miktarını gösterir. Sipariş trendlerini ve ürün dağılımını analiz ederek satış performansını daha iyi anlamanıza yardımcı olur.",
     "ProductsChart": "Ürünler Tablosu",
-    "ProductsChartInfo": "Bu grafik, ShopCO'daki her ürünün satışlarına ilişkin ayrıntılı bilgiler sağlar. Satılan miktarı, birim başına fiyatı ve her ürünün adını görüntüler ve ürün performansının kapsamlı bir analizine olanak tanır."
+    "ProductsChartInfo": "Bu grafik, ShopCO'daki her ürünün satışlarına ilişkin ayrıntılı bilgiler sağlar. Satılan miktarı, birim başına fiyatı ve her ürünün adını görüntüler ve ürün performansının kapsamlı bir analizine olanak tanır.",
+    "DashboardTitle": "Dashboard",
+    "DashboardInfo": "Bu grafikte, ShopCO'daki ürünlerin toplam değerini, kullanıcıların sitede ne kadar harcama yaptığını, her kategorideki ürün sayısını, renklerine göre ürün dağılımını ve bedenlerine göre ürün sayılarını pasta grafikleriyle gösteriyoruz. Bu grafikler, site performansını ve stok durumunu ayrıntılı bir şekilde analiz etmenize yardımcı olur.",
+    "PriceAllProducts": "Tüm Ürünlerin Toplam Fiyatı",
+    "TotalUserSpending": "Toplam Kullanıcı Harcamaları",
+    "ProductCountbyCategory": "Kategori Bazında Ürün Sayıları",
+    "ProductDistributionbyColor": "Renk Bazında Ürün Dağılımı",
+    "ProductCountbySize": "Beden Bazında Ürün Sayıları",
+    "User": "Kullanıcı",
+    "TotalAmountSpend": "T. harcanan miktar",
+    "Category": "Kategori",
+    "Amount": "Adet",
+    "Color": "Renk",
+    "Size": "Beden"
   }
 }
